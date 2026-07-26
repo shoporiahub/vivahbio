@@ -68,7 +68,7 @@ function PhotoUpload() {
                 control={control}
                 render={({ field }) => (
                     <ImageUpload
-                        value={field.value}
+                        value={field.value ?? null}
                         onChange={(file) =>
                             handlePhotoChange(file, field.onChange)
                         }

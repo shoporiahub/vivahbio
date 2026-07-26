@@ -13,11 +13,13 @@ import ReviewGenerateCard from "../review/ReviewGenerateCard";
 import { getReviewSections } from "../review/reviewSections";
 
 function Review() {
-    const values = useWatch<BiodataSchema>();
+    const { control, getValues } = useFormContext<BiodataSchema>();
 
+    const values = useWatch({
+        control,
+    }) ?? getValues();
     const navigate = useNavigate();
 
-    const { getValues } = useFormContext<BiodataSchema>();
 
     const [searchParams] = useSearchParams();
 

@@ -1,6 +1,5 @@
 import { FORM_STEPS } from "../../constants/formSteps";
 import ProgressCard from "./ProgressCard";
-import SelectedTemplateCard from "./SelectedTemplateCard";
 
 type Props = {
     currentStep: number;
@@ -9,7 +8,6 @@ type Props = {
 
 function BiodataSidebar({
     currentStep,
-    template,
 }: Props) {
 
     return (
