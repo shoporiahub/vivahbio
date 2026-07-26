@@ -1,13 +1,4 @@
-import razorpay
-
 from app.core.config import settings
-
-client = razorpay.Client(
-    auth=(
-        settings.razorpay_key_id,
-        settings.razorpay_key_secret,
-    )
-)
 
 # Never trust prices from the frontend.
 ITEM_PRICES = {
@@ -22,6 +13,15 @@ ITEM_PRICES = {
 
 
 def create_order(item: str):
+    import razorpay
+
+    client = razorpay.Client(
+        auth=(
+            settings.razorpay_key_id,
+            settings.razorpay_key_secret,
+        )
+    )
+
     if item not in ITEM_PRICES:
         raise ValueError("Invalid item")
 
