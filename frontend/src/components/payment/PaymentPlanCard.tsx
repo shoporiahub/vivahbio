@@ -1,13 +1,6 @@
 import { CheckCircle } from "lucide-react";
 
 function PaymentPlanCard({ planCard }: { planCard: any }) {
-    type Props = {
-        plan: {
-            template: string;
-            price: string;
-            description: string;
-        };
-    };
 
     return (
         <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">

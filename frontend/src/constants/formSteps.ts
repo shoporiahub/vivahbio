@@ -1,4 +1,7 @@
 import type { ComponentType } from "react";
+import type { FieldPath } from "react-hook-form";
+
+import type { BiodataSchema } from "../schemas/biodata.schema";
 
 import PersonalDetails from "../components/biodata/PersonalDetails";
 import ContactDetails from "../components/biodata/ContactDetails";
@@ -12,7 +15,7 @@ export type FormStep = {
     title: string;
     description: string;
     component: ComponentType;
-    fields: string[];
+    fields: FieldPath<BiodataSchema>[];
 };
 
 export const FORM_STEPS: FormStep[] = [

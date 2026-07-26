@@ -5,20 +5,6 @@ import { createOrder } from "../../services/payment.service";
 
 function PaymentSummary({ paymentSummary }: { paymentSummary: any }) {
 
-    type Props = {
-        paymentSummary: {
-            templateKey: string;
-            templateName: string;
-            priceKey: string;
-            priceValue: string;
-            TotalKey: string;
-            totalValue: string;
-            gstKey: string;
-            gstValue: string;
-        };
-    };
-
-
     const handlePayment = async () => {
         try {
             const order = await createOrder("premium");

@@ -92,4 +92,5 @@ export const biodataSchema = z.object({
     profilePhotoUrl: z.string().url().optional(),
 });
 
-export type BiodataSchema = z.infer<typeof biodataSchema>;
+export type BiodataSchema = z.output<typeof biodataSchema>;
+export type BiodataFormValues = z.input<typeof biodataSchema>;

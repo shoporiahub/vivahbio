@@ -1,11 +1,11 @@
 import { useState } from "react";
 import type { UseFormTrigger } from "react-hook-form";
 
-import type { BiodataSchema } from "../schemas/biodata.schema";
+import type { BiodataFormValues } from "../schemas/biodata.schema";
 import { FORM_STEPS } from "../constants/formSteps";
 
 type UseBiodataStepperProps = {
-    trigger: UseFormTrigger<BiodataSchema>;
+    trigger: UseFormTrigger<BiodataFormValues>;
 };
 
 function useBiodataStepper({
@@ -16,14 +16,13 @@ function useBiodataStepper({
     const totalSteps = FORM_STEPS.length;
 
     async function nextStep() {
-        const currentFields = FORM_STEPS[currentStep].fields;
-
         const fields = FORM_STEPS[currentStep].fields;
 
         const isValid =
             fields.length === 0
                 ? true
                 : await trigger(fields);
+
         if (!isValid) {
             return;
         }
@@ -46,7 +45,6 @@ function useBiodataStepper({
     }
 
     const isFirstStep = currentStep === 0;
-
     const isLastStep = currentStep === totalSteps - 1;
 
     const progress = Math.round(

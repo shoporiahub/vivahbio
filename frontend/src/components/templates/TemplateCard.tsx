@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 type TemplateCardProps = {
     slug: string;
     name: string;
-    price: string;
+    price: number;
     description: string;
     image: string;
 };
@@ -45,7 +45,7 @@ function TemplateCard({
                 <div className="mt-6 flex items-center justify-between">
 
                     <span className="text-xl font-bold text-blue-300">
-                        {price}
+                        ₹{price}
                     </span>
 
                     <span className="rounded-full bg-yellow-400 px-3 py-1 text-sm font-bold text-slate-900">
