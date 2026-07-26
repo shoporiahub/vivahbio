@@ -27,7 +27,8 @@ python-dateutil==2.9.0.post0
 python-dotenv==1.2.2
 python-jose==3.5.0
 python-multipart==0.0.32
-PyYAML==6.0.2requests==2.34.2
+PyYAML==6.0.2
+requests==2.34.2
 rsa==4.9.1
 six==1.16.0
 SQLAlchemy==2.0.51
