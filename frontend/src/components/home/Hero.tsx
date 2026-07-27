@@ -71,6 +71,7 @@ function Hero() {
                                 src={heroImage}
                                 alt="Marriage Biodata Preview"
                                 className="w-[550px] lg:w-[650px] xl:w-[700px] rounded-3xl object-cover drop-shadow-2xl transition duration-300 hover:scale-105"
+                                onClick={() => navigate("/templates")}
                             />
 
                         </div>

@@ -51,10 +51,9 @@ function Navbar() {
                                 key={item.href}
                                 to={item.href}
                                 className={({ isActive }) =>
-                                    `text-base font-semibold transition-colors duration-200 ${
-                                        isActive
-                                            ? "text-white"
-                                            : "text-slate-300 hover:text-white"
+                                    `text-base font-semibold transition-colors duration-200 ${isActive
+                                        ? "text-white"
+                                        : "text-slate-300 hover:text-white"
                                     }`
                                 }
                             >
@@ -97,13 +96,14 @@ function Navbar() {
 
                             <>
 
-                                <div className="rounded-full bg-white/10 px-4 py-2">
-
+                                <button
+                                    onClick={() => navigate("/dashboard")}
+                                    className="rounded-full bg-white/10 px-4 py-2 transition hover:bg-white/20"
+                                >
                                     <span className="font-semibold text-white">
                                         Hi, {user?.name}
                                     </span>
-
-                                </div>
+                                </button>
 
                                 <button
                                     onClick={handleLogout}

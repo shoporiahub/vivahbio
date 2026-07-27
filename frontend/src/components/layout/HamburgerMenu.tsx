@@ -4,7 +4,6 @@ import {
     X,
     Home,
     FileText,
-    Sparkles,
     BadgeDollarSign,
     Mail,
     CircleHelp,
@@ -79,8 +78,8 @@ function HamburgerMenu({ isOpen, onClose }: Props) {
     return (
         <div
             className={`fixed inset-0 z-[100] transition-all duration-300 ${isOpen
-                    ? "visible opacity-100"
-                    : "invisible opacity-0"
+                ? "visible opacity-100"
+                : "invisible opacity-0"
                 }`}
         >
             {/* Overlay */}
@@ -94,8 +93,8 @@ function HamburgerMenu({ isOpen, onClose }: Props) {
 
             <aside
                 className={`absolute right-0 top-0 flex h-full w-80 max-w-[88vw] flex-col overflow-hidden bg-white shadow-2xl transition-transform duration-300 ${isOpen
-                        ? "translate-x-0"
-                        : "translate-x-full"
+                    ? "translate-x-0"
+                    : "translate-x-full"
                     }`}
             >
                 {/* Header */}
@@ -158,6 +157,15 @@ function HamburgerMenu({ isOpen, onClose }: Props) {
                             </NavLink>
                         );
                     })}
+                    {isAuthenticated && (
+                        <NavLink
+                            to="/dashboard"
+                            onClick={onClose}
+                            className="block rounded-xl px-4 py-3 text-base font-semibold text-slate-900 transition hover:bg-slate-100 hover:text-blue-700"
+                        >
+                            Dashboard
+                        </NavLink>
+                    )}
                 </div>
                 {/* Footer */}
 

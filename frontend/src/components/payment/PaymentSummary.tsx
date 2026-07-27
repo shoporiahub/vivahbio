@@ -5,42 +5,42 @@ import { createOrder } from "../../services/payment.service";
 
 function PaymentSummary({ paymentSummary }: { paymentSummary: any }) {
 
-    // const handlePayment = async () => {
-    //     try {
-    //         const order = await createOrder("premium");
+    const handlePayment = async () => {
+        try {
+            const order = await createOrder("premium");
 
-    //         const options = {
-    //             key: order.key,
-    //             amount: order.amount,
-    //             currency: order.currency,
-    //             name: "DocCraft AI",
-    //             description: "Premium Marriage Biodata",
-    //             order_id: order.order_id,
+            const options = {
+                key: order.key,
+                amount: order.amount,
+                currency: order.currency,
+                name: "DocCraft AI",
+                description: "Premium Marriage Biodata",
+                order_id: order.order_id,
 
-    //             handler: function (response: any) {
-    //                 console.log("Payment Successful");
+                handler: function (response: any) {
+                    console.log("Payment Successful");
 
-    //                 console.log(response);
-    //             },
+                    console.log(response);
+                },
 
-    //             prefill: {
-    //                 name: "Daniyaal",
-    //                 email: "",
-    //                 contact: "",
-    //             },
+                prefill: {
+                    name: "Daniyaal",
+                    email: "",
+                    contact: "",
+                },
 
-    //             theme: {
-    //                 color: "#2563eb",
-    //             },
-    //         };
+                theme: {
+                    color: "#2563eb",
+                },
+            };
 
-    //         const razorpay = new window.Razorpay(options);
+            const razorpay = new window.Razorpay(options);
 
-    //         razorpay.open();
-    //     } catch (err) {
-    //         console.error(err);
-    //     }
-    // };
+            razorpay.open();
+        } catch (err) {
+            console.error(err);
+        }
+    };
 
 
     return (
@@ -149,7 +149,7 @@ function PaymentSummary({ paymentSummary }: { paymentSummary: any }) {
             <button
                 type="button"
                 className="mt-10 w-full rounded-2xl bg-blue-600 py-4 text-lg font-semibold text-white transition hover:bg-blue-700"
-                // onClick={handlePayment}
+                onClick={handlePayment}
             >
                 Pay {paymentSummary.totalValue}
             </button>
