@@ -11,7 +11,7 @@ function ClassicTemplate({
     data,
 }: TemplateProps) {
     return (
-        <div className="mx-auto min-h-[297mm] w-[210mm] bg-white p-12 shadow-xl">
+        <div className="mx-auto min-h-[297mm] w-[210mm] bg-white p-12 shadow-xl overflow-visible">
             <Header data={data} />
 
             <PersonalInfo data={data} />

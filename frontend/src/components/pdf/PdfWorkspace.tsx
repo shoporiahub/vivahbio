@@ -4,7 +4,7 @@ type Props = {
     children: ReactNode;
 };
 
-function PdfWorkspace({
+function ResponsivePdfViewer({
     children,
 }: Props) {
     return (
@@ -16,4 +16,4 @@ function PdfWorkspace({
     );
 }
 
-export default PdfWorkspace;
+export default ResponsivePdfViewer;

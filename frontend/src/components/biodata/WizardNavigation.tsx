@@ -13,51 +13,51 @@ function WizardNavigation({
     previousStep,
     nextStep,
     loading,
-    onGenerateClick
+    onGenerateClick,
 }: Props) {
-    
     return (
+        <div className="mt-10 border-t border-slate-200 pt-6">
 
-        <div className="mt-12 flex items-center justify-between pt-8">
-
-            <button
-                type="button"
-                disabled={isFirstStep}
-                onClick={previousStep}
-                className="rounded-xl border border-slate-300 px-8 py-4 transition hover:bg-slate-100 disabled:opacity-50"
-            >
-                Previous
-            </button>
-
-            {!isLastStep ? (
+            <div className="flex flex-col-reverse gap-3 sm:flex-row sm:justify-between">
 
                 <button
                     type="button"
-                    onClick={nextStep}
-                    className="rounded-xl bg-blue-600 px-8 py-4 font-semibold text-white transition hover:bg-blue-700"
+                    disabled={isFirstStep}
+                    onClick={previousStep}
+                    className="w-full rounded-xl border border-slate-300 px-6 py-3 font-medium transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
                 >
-                    Next →
+                    ← Previous
                 </button>
 
-            ) : (
+                {!isLastStep ? (
 
-                <button
-                    type="submit"
-                    disabled={loading}
-                    onClick={onGenerateClick}
-                    className="rounded-xl bg-blue-600 px-8 py-4 font-semibold text-white transition hover:bg-blue-700 disabled:opacity-50"
-                >
-                    {loading
-                        ? "Generating..."
-                        : "Generate Biodata"}
-                </button>
+                    <button
+                        type="button"
+                        onClick={nextStep}
+                        className="w-full rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700 sm:w-auto"
+                    >
+                        Next →
+                    </button>
 
-            )}
+                ) : (
+
+                    <button
+                        type="submit"
+                        disabled={loading}
+                        onClick={onGenerateClick}
+                        className="w-full rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
+                    >
+                        {loading
+                            ? "Generating..."
+                            : "Generate Biodata"}
+                    </button>
+
+                )}
+
+            </div>
 
         </div>
-
     );
-
 }
 
 export default WizardNavigation;

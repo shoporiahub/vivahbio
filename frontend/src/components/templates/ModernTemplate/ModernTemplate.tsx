@@ -9,7 +9,7 @@ import Footer from "./Footer";
 
 function ModernTemplate({ data }: TemplateProps) {
     return (
-        <div className="mx-auto min-h-[297mm] w-[210mm] bg-white p-10 shadow-xl">
+        <div className="mx-auto min-h-[297mm] w-[210mm] bg-white p-12 shadow-xl overflow-visible">
             <Header data={data} />
 
             <div className="mt-8 space-y-8">

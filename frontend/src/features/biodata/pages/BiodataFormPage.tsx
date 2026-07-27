@@ -99,23 +99,60 @@ function BiodataFormPage() {
         <Layout>
             <BiodataHero />
 
-            <section className="bg-slate-50 py-20">
-                <div className="mx-auto max-w-7xl px-8">
-                    <div className="grid gap-10 lg:grid-cols-[320px_1fr]">
-                        <BiodataSidebar
-                            currentStep={currentStep}
-                            template={selectedTemplate}
-                        />
+            <section className="bg-slate-50 py-8 md:py-12 lg:py-20">
+                <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+                    {/* Mobile Progress */}
+                    <div className="mb-6 lg:hidden">
+
+                        <div className="mb-2 flex items-center justify-between">
+
+                            <span className="text-sm font-semibold text-slate-700">
+                                Step {currentStep + 1} of {FORM_STEPS.length}
+                            </span>
+
+                            <span className="text-sm text-slate-500">
+                                {FORM_STEPS[currentStep].title}
+                            </span>
+
+                        </div>
+
+                        <div className="h-2 overflow-hidden rounded-full bg-slate-200">
+
+                            <div
+                                className="h-full rounded-full bg-blue-600 transition-all duration-300"
+                                style={{
+                                    width: `${((currentStep + 1) / FORM_STEPS.length) * 100}%`,
+                                }}
+                            />
+
+                        </div>
+
+                    </div>
+
+                    <div className="grid gap-6 lg:grid-cols-[300px_1fr] lg:gap-10">
+
+                        {/* Desktop Sidebar */}
+                        <div className="hidden lg:block">
+                            <BiodataSidebar
+                                currentStep={currentStep}
+                                template={selectedTemplate}
+                            />
+                        </div>
 
                         <FormCard>
+
                             {error && (
-                                <div className="mb-8 rounded-xl border border-red-200 bg-red-50 p-4 text-red-600">
+                                <div className="mb-6 rounded-xl border border-red-200 bg-red-50 p-4 text-red-600">
                                     {error}
                                 </div>
                             )}
 
                             <FormProvider {...methods}>
-                                <form onSubmit={handleSubmit(onSubmit)}>
+                                <form
+                                    onSubmit={handleSubmit(onSubmit)}
+                                    className="space-y-8"
+                                >
                                     <CurrentStep />
 
                                     <WizardNavigation
@@ -128,8 +165,11 @@ function BiodataFormPage() {
                                     />
                                 </form>
                             </FormProvider>
+
                         </FormCard>
+
                     </div>
+
                 </div>
             </section>
         </Layout>
