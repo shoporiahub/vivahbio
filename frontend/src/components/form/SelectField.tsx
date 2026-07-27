@@ -43,24 +43,22 @@ function SelectField<T extends FieldValues>({
             <select
                 {...register(name)}
                 className={`
-                    h-12
-                    w-full
-                    rounded-xl
-                    border
-                    bg-white
-                    px-4
-                    text-slate-900
-                    shadow-sm
-                    transition-all
-                    duration-200
-                    outline-none
-
-                    ${
-                        error
-                            ? "border-red-400 focus:border-red-500 focus:ring-4 focus:ring-red-100"
-                            : "border-slate-300 hover:border-slate-400 focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
+                            h-12
+                            w-full
+                            rounded-xl
+                            border
+                            bg-white
+                            px-4
+                            text-base
+                            text-slate-900
+                            outline-none
+                            transition-all
+                            duration-200
+        ${error
+                        ? "border-red-400 focus:border-red-500 focus:ring-4 focus:ring-red-100"
+                        : "border-slate-300 focus:border-blue-600 focus:ring-4 focus:ring-blue-100"
                     }
-                `}
+    `}
             >
                 <option value="">
                     {placeholder}

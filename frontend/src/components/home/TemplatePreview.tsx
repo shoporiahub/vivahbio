@@ -34,33 +34,29 @@ function TemplatePreview() {
                 <div className="mt-20 grid gap-10 md:grid-cols-2 xl:grid-cols-3">
 
                     {templates.map((template) => (
-                        <div
+                        <Link
                             key={template.id}
-                            className="group overflow-hidden rounded-3xl bg-white/10 backdrop-blur-md shadow-2xl transition-all duration-300 hover:-translate-y-3 hover:shadow-blue-500/30"
+                            to={`/templates/${template.slug}`}
+                            className="group overflow-hidden rounded-3xl bg-white/10 shadow-2xl backdrop-blur-md transition-all duration-300 hover:-translate-y-3 hover:shadow-blue-500/30"
                         >
-
                             {/* Image */}
 
-                            <div className="overflow-hidden">
-
+                            {/* <div className="overflow-hidden">
                                 <img
                                     src={template.image}
                                     alt={template.name}
                                     className="h-[460px] w-full object-cover transition duration-500 group-hover:scale-105"
                                 />
-
-                            </div>
+                            </div> */}
 
                             {/* Content */}
 
-                            <div className="p-8">
-
+                            {/* <div className="p-8">
                                 <h3 className="text-3xl font-bold text-white">
                                     {template.name}
                                 </h3>
 
                                 <div className="mt-4 flex items-center justify-between">
-
                                     <span className="text-xl font-bold text-blue-300">
                                         {template.price}
                                     </span>
@@ -68,19 +64,13 @@ function TemplatePreview() {
                                     <span className="rounded-full bg-yellow-400 px-3 py-1 text-sm font-bold text-slate-900">
                                         ★ 5.0
                                     </span>
-
                                 </div>
 
-                                <Link
-                                    to={`/templates/${template.slug}`}
-                                    className="mt-8 block w-full rounded-xl bg-white py-4 text-center text-lg font-bold text-blue-800 transition hover:scale-[1.02] hover:bg-slate-100"
-                                >
-                                    Preview Template
-                                </Link>
-
-                            </div>
-
-                        </div>
+                                <div className="mt-8 flex items-center justify-center rounded-xl bg-white py-4 text-lg font-bold text-blue-800 transition group-hover:bg-slate-100">
+                                    Preview Template 
+                                </div>
+                            </div> */}
+                        </Link>
                     ))}
 
                 </div>
