@@ -134,7 +134,7 @@ function TemplateDetailsPage() {
                         </h2>
 
                         <p className="mt-8 text-5xl font-extrabold text-blue-600">
-                            {template.price}
+                            ₹{template.price}
                         </p>
 
                         <p className="mt-8 text-lg leading-8 text-slate-600">
