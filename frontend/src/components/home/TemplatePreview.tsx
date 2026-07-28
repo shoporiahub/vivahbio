@@ -41,17 +41,17 @@ function TemplatePreview() {
                         >
                             {/* Image */}
 
-                            {/* <div className="overflow-hidden">
+                            <div className="overflow-hidden">
                                 <img
                                     src={template.image}
                                     alt={template.name}
                                     className="h-[460px] w-full object-cover transition duration-500 group-hover:scale-105"
                                 />
-                            </div> */}
+                            </div>
 
                             {/* Content */}
 
-                            {/* <div className="p-8">
+                            <div className="p-8">
                                 <h3 className="text-3xl font-bold text-white">
                                     {template.name}
                                 </h3>
@@ -67,9 +67,9 @@ function TemplatePreview() {
                                 </div>
 
                                 <div className="mt-8 flex items-center justify-center rounded-xl bg-white py-4 text-lg font-bold text-blue-800 transition group-hover:bg-slate-100">
-                                    Preview Template 
+                                    Preview Template
                                 </div>
-                            </div> */}
+                            </div>
                         </Link>
                     ))}
 

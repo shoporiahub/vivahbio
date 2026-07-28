@@ -13,6 +13,8 @@ from app.route.payment import router as payment_router
 
 from app.contact.router import router as contact_router
 
+from app.review.router import router as review_router
+
 
 app = FastAPI(
     title="DocCraft AI API",
@@ -43,6 +45,7 @@ app.include_router(biodata_router)
 app.include_router(upload_router)
 app.include_router(payment_router)
 app.include_router(contact_router)
+app.include_router(review_router)
 
 
 

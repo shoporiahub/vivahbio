@@ -51,32 +51,38 @@ function PhotoUpload() {
     }
 
     return (
-        <>
+        <div className="space-y-6">
             <SectionTitle
                 title="Profile Photo"
-                description="Upload a clear profile picture for your biodata."
+                description="Upload a clear, high-quality profile picture for your marriage biodata."
             />
 
-            {uploading && (
-                <p className="mb-4 text-blue-600">
-                    Uploading image...
-                </p>
-            )}
-
-            <Controller
-                name="profilePhoto"
-                control={control}
-                render={({ field }) => (
-                    <ImageUpload
-                        value={field.value ?? null}
-                        onChange={(file) =>
-                            handlePhotoChange(file, field.onChange)
-                        }
-                        error={errors.profilePhoto?.message}
-                    />
+            <div className="mx-auto w-full max-w-md">
+                {uploading && (
+                    <div className="mb-4 rounded-xl border border-blue-200 bg-blue-50 px-4 py-3 text-center text-sm font-medium text-blue-700">
+                        Uploading image...
+                    </div>
                 )}
-            />
-        </>
+
+                <Controller
+                    name="profilePhoto"
+                    control={control}
+                    render={({ field }) => (
+                        <ImageUpload
+                            value={field.value ?? null}
+                            onChange={(file) =>
+                                handlePhotoChange(file, field.onChange)
+                            }
+                            error={errors.profilePhoto?.message}
+                        />
+                    )}
+                />
+
+                <p className="mt-4 text-center text-sm text-slate-500">
+                    JPG, JPEG or PNG • Max size 5 MB
+                </p>
+            </div>
+        </div>
     );
 }
 
