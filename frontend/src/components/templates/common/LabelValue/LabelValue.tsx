@@ -21,7 +21,7 @@ export default function LabelValue({
 
     separator = ":",
 
-    labelWidth = "170px",
+    // labelWidth = "170px",
 }: LabelValueProps) {
     const displayValue =
         value instanceof File
