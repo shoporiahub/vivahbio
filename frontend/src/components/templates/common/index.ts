@@ -1,0 +1,9 @@
+export { default as Page } from "./page/Page";
+export { default as TemplateHeader } from "./TemplateHeader/TemplateHeader";
+export { default as Section } from "./Section/Section";
+export { default as SectionTitle } from "./SectionTitle/SectionTitle";
+export { default as DetailRow } from "./DetailRow/DetailRow";
+export { default as Photo } from "./Photo/Photo";
+export { default as Border } from "./Border/Border";
+export { default as LabelValue } from "./LabelValue/LabelValue";
+export { default as Divider } from "./Divider/Divider"; 

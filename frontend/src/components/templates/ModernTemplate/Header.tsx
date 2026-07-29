@@ -1,39 +1,29 @@
-import type { TemplateProps } from "../../../types/template";
+import Divider from "./Divider";
+import { modernTheme } from "./theme";
 
-function Header({ data }: TemplateProps) {
+type Props = {
+    name: string;
+};
+
+export default function Header({ name }: Props) {
     return (
-        <header className="flex gap-8 border-b border-slate-200 pb-8">
-            <div className="shrink-0">
-                {data.profilePhotoUrl ? (
-                    <img
-                        src={data.profilePhotoUrl}
-                        alt={data.fullName}
-                        className="h-40 w-32 rounded-xl object-cover shadow-md"
-                    />
-                ) : (
-                    <div className="flex h-40 w-32 items-center justify-center rounded-xl border bg-slate-100 text-sm text-slate-500">
-                        No Photo
-                    </div>
-                )}
-            </div>
-
-            <div className="flex flex-col justify-center">
-                <h1 className="text-4xl font-bold text-slate-800">
-                    {data.fullName}
+        <header>
+            <div
+                className="rounded-t-md px-8 py-5 text-center"
+                style={{
+                    backgroundColor: modernTheme.primary,
+                }}
+            >
+                <h1 className="text-[34px] font-bold tracking-wide text-white">
+                    {name || "YOUR NAME"}
                 </h1>
 
-                <p className="mt-2 text-lg text-slate-600">
-                    Marriage Biodata
+                <p className="mt-2 text-sm uppercase tracking-[0.3em] text-white/90">
+                    Seeking A Perfect Life Partner
                 </p>
-
-                <div className="mt-6 flex flex-wrap gap-6 text-sm text-slate-500">
-                    {data.city && <span>{data.city}</span>}
-                    {data.mobile && <span>{data.mobile}</span>}
-                    {data.email && <span>{data.email}</span>}
-                </div>
             </div>
+
+            <Divider className="my-5" />
         </header>
     );
 }
-
-export default Header;

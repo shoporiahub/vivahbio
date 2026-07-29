@@ -1,32 +1,51 @@
-import type { TemplateProps } from "../../../types/template";
-
 import Header from "./Header";
-import PersonalInfo from "./PersonalInfo";
-import FamilyInfo from "./FamilyInfo";
-import EducationInfo from "./EducationInfo";
-import PartnerPreference from "./PartnerPreference";
-import Footer from "./Footer";
+import Section from "./Section";
+import LabelValue from "./LabelValue";
+import { modernSections } from "./sections";
+import { MODERN_CONSTANTS } from "./constants";
 
-function ModernTemplate({ data }: TemplateProps) {
+import { Page, Photo } from "../common";
+
+import type { BiodataSchema } from "../../../schemas/biodata.schema";
+
+type Props = {
+    data: BiodataSchema;
+};
+
+export default function ModernTemplate({ data }: Props) {
     return (
-        <div className="mx-auto min-h-[297mm] w-[210mm] bg-white p-12 shadow-xl overflow-visible">
-            <Header data={data} />
+        <Page className="bg-white px-8 py-8">
+            <Header name={data.fullName} />
 
-            <div className="mt-8 space-y-8">
-                <PersonalInfo data={data} />
+            <div className="grid grid-cols-[120px_1fr] gap-8 mt-6">
+                {/* Left Side */}
+                <div className="flex justify-center">
+                    <Photo
+                        src={data.profilePhotoUrl}
+                        width={MODERN_CONSTANTS.photoWidth}
+                        height={MODERN_CONSTANTS.photoHeight}
+                        className="border border-gray-300"
+                    />
+                </div>
 
-                <FamilyInfo data={data} />
-
-                <EducationInfo data={data} />
-
-                <PartnerPreference data={data} />
+                {/* Right Side */}
+                <div>
+                    {modernSections.map((section) => (
+                        <Section
+                            key={section.title}
+                            title={section.title}
+                        >
+                            {section.fields.map((field) => (
+                                <LabelValue
+                                    key={field.key}
+                                    label={field.label}
+                                    value={data[field.key]}
+                                />
+                            ))}
+                        </Section>
+                    ))}
+                </div>
             </div>
-
-            <div className="mt-10">
-                <Footer />
-            </div>
-        </div>
+        </Page>
     );
 }
-
-export default ModernTemplate;

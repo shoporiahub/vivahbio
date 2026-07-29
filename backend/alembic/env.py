@@ -8,6 +8,7 @@ from app.core.database import Base
 from app.models.user import User
 from app.models.biodata import Biodata
 from app.models.contact import ContactMessage
+from app.review.model import Review
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
