@@ -1,7 +1,9 @@
 
-import classicTemplate from "../assets/biodata1.png";
-import modernTemplate from "../assets/biodata2.png";
-import premiumTemplate from "../assets/biodata3.png";
+import classicTemplate from "../assets/mb1.png";
+import modernTemplate from "../assets/mb2.png";
+import premiumTemplate from "../assets/mb3.png";
+import RoyalTemplate from "../assets/mb4.png";
+
 export type Template = {
     id: number;
     slug: string;
@@ -42,7 +44,7 @@ export const templates: Template[] = [
         name: "Luxury",
         price: 49,
         description: "Professional luxury biodata template.",
-        image: classicTemplate,
+        image: RoyalTemplate,
     },
     // {
     //     id: 5,

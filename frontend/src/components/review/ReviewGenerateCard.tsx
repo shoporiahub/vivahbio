@@ -42,7 +42,7 @@ function ReviewGenerateCard({ onGenerate }: Props) {
 
                 <button
                     type="button"
-                    onClick={onGenerate}
+                    // onClick={onGenerate}
                     className="mt-8 w-full rounded-xl bg-white px-6 py-4 text-base font-semibold text-blue-700 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
                 >
                     Generate Biodata →

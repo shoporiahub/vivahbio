@@ -22,11 +22,11 @@ function TemplateCard({
         >
             {/* Image */}
 
-            <div className="overflow-hidden">
+            <div className="flex h-[460px] items-center justify-center bg-white">
                 <img
                     src={image}
                     alt={name}
-                    className="h-[460px] w-full object-cover transition duration-500 group-hover:scale-105"
+                    className="h-full w-full object-contain transition duration-500 group-hover:scale-105"
                 />
             </div>
 
@@ -42,9 +42,9 @@ function TemplateCard({
                 </p>
 
                 <div className="mt-6 flex items-center justify-between">
-                    <span className="text-xl font-bold text-blue-300">
+                    {price > 0 && <span className="text-xl font-bold text-blue-300">
                         ₹{price}
-                    </span>
+                    </span>}
 
                     <span className="rounded-full bg-yellow-400 px-3 py-1 text-sm font-bold text-slate-900">
                         ★ 5.0

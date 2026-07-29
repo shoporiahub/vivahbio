@@ -133,9 +133,9 @@ function TemplateDetailsPage() {
                             {template.name}
                         </h2>
 
-                        <p className="mt-8 text-5xl font-extrabold text-blue-600">
+                        {template.price > 0 && <p className="mt-8 text-5xl font-extrabold text-blue-600">
                             ₹{template.price}
-                        </p>
+                        </p>}
 
                         <p className="mt-8 text-lg leading-8 text-slate-600">
                             {template.description}

@@ -15,6 +15,9 @@ import DashboardPage from "../features/dashboard/pages/DashboardPage";
 import ProtectedRoute from "../features/auth/components/ProtectedRoute";
 import PaymentPageWrapper from "../pages/paymentPageWrapper";
 import RootLayout from "../components/RootLayout";
+import PrivacyPolicyPage from "../pages/PrivacyPolicy/PrivacyPolicyPage";
+import TermsOfServicePage from "../pages/TermOfService/TermOfServicePage";
+
 
 const router = createBrowserRouter([
     {
@@ -87,6 +90,18 @@ const router = createBrowserRouter([
                         <PaymentPageWrapper />
                     </ProtectedRoute>
                 ),
+            },
+            {
+                path: "/terms-of-service",
+                element: <TermsOfServicePage />,
+            },
+            {
+                path: "/privacypolicy",
+                element: <PrivacyPolicyPage />,
+            },
+            {
+                path: "/termofservice",
+                element: <TermsOfServicePage />,
             },
         ]
     }
