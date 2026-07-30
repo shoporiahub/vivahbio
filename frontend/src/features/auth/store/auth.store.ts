@@ -77,14 +77,18 @@ export const useAuthStore = create<AuthState>()(
             },
 
             async fetchCurrentUser() {
+                set({ loading: true });
+
                 try {
                     const user = await getCurrentUser();
 
                     set({
                         user,
                         isAuthenticated: true,
+                        loading: false,
                     });
                 } catch {
+                    set({ loading: false });
                     get().logout();
                 }
             },

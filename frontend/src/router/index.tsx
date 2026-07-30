@@ -17,7 +17,7 @@ import PaymentPageWrapper from "../pages/paymentPageWrapper";
 import RootLayout from "../components/RootLayout";
 import PrivacyPolicyPage from "../pages/PrivacyPolicy/PrivacyPolicyPage";
 import TermsOfServicePage from "../pages/TermOfService/TermOfServicePage";
-
+import PrintPage from "../pages/PrintPage";
 
 const router = createBrowserRouter([
     {
@@ -102,6 +102,14 @@ const router = createBrowserRouter([
             {
                 path: "/termofservice",
                 element: <TermsOfServicePage />,
+            },
+            {
+                path: "/print",
+                element: (
+                    <ProtectedRoute>
+                        <PrintPage />
+                    </ProtectedRoute>
+                ),
             },
         ]
     }

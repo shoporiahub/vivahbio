@@ -8,6 +8,9 @@ class Settings(BaseSettings):
     ALGORITHM: str
     ACCESS_TOKEN_EXPIRE_MINUTES: int
 
+    # Frontend
+    FRONTEND_URL: str
+
     # Cloudinary
     CLOUDINARY_CLOUD_NAME: str
     CLOUDINARY_API_KEY: str

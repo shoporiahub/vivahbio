@@ -1,8 +1,4 @@
-type Props = {
-    onGenerate: () => void;
-};
-
-function ReviewGenerateCard({ onGenerate }: Props) {
+function ReviewGenerateCard() {
     return (
         <div className="overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 via-blue-700 to-slate-900 shadow-xl">
 
@@ -13,12 +9,14 @@ function ReviewGenerateCard({ onGenerate }: Props) {
                 </div>
 
                 <h2 className="mt-6 text-2xl font-bold text-white">
-                    Generate Biodata
+                    Ready to Generate
                 </h2>
 
                 <p className="mt-3 text-sm leading-6 text-blue-100">
-                    You've completed all the required information.
-                    Generate a beautiful, premium marriage biodata in just one click.
+                    Please review all your information carefully. When you're
+                    satisfied, click the <strong>Generate Biodata</strong> button
+                    below the review section to create your premium marriage
+                    biodata.
                 </p>
 
                 <div className="mt-8 space-y-3">
@@ -39,14 +37,6 @@ function ReviewGenerateCard({ onGenerate }: Props) {
                     </div>
 
                 </div>
-
-                <button
-                    type="button"
-                    onClick={onGenerate}
-                    className="mt-8 w-full rounded-xl bg-white px-6 py-4 text-base font-semibold text-blue-700 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
-                >
-                    Generate Biodata →
-                </button>
 
             </div>
 

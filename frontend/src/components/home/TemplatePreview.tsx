@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import { templates } from "../../constants/templates";
 
 function TemplatePreview() {
+    const visibleTemplates = templates.slice(0, 6);
+    const hasMoreTemplates = templates.length > 6;
+
     return (
         <section className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 py-28">
             <div className="mx-auto max-w-7xl px-8">
@@ -33,7 +36,7 @@ function TemplatePreview() {
 
                 <div className="mt-20 grid gap-10 md:grid-cols-2 xl:grid-cols-3">
 
-                    {templates.map((template) => (
+                    {visibleTemplates.map((template) => (
                         <Link
                             key={template.id}
                             to={`/templates/${template.slug}`}
@@ -57,9 +60,11 @@ function TemplatePreview() {
                                 </h3>
 
                                 <div className="mt-4 flex items-center justify-between">
-                                    {template?.price > 0 && <span className="text-xl font-bold text-blue-300">
-                                        ₹{template.price}
-                                    </span>}
+                                    {template.price > 0 && (
+                                        <span className="text-xl font-bold text-blue-300">
+                                            ₹{template.price}
+                                        </span>
+                                    )}
 
                                     <span className="rounded-full bg-yellow-400 px-3 py-1 text-sm font-bold text-slate-900">
                                         ★ 5.0
@@ -74,6 +79,19 @@ function TemplatePreview() {
                     ))}
 
                 </div>
+
+                {/* View More */}
+
+                {hasMoreTemplates && (
+                    <div className="mt-16 flex justify-center">
+                        <Link
+                            to="/templates"
+                            className="rounded-xl bg-blue-600 px-8 py-4 text-lg font-semibold text-white transition hover:bg-blue-700"
+                        >
+                            View All Templates
+                        </Link>
+                    </div>
+                )}
 
             </div>
         </section>

@@ -15,6 +15,7 @@ from app.contact.router import router as contact_router
 
 from app.review.router import router as review_router
 
+from app.document_engine.router import router as document_router
 
 app = FastAPI(
     title="DocCraft AI API",
@@ -36,6 +37,7 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["Content-Disposition"],
 )
 
 
@@ -46,7 +48,7 @@ app.include_router(upload_router)
 app.include_router(payment_router)
 app.include_router(contact_router)
 app.include_router(review_router)
-
+app.include_router(document_router)
 
 
 @app.get("/")

@@ -1,9 +1,6 @@
-import { useNavigate, useSearchParams } from "react-router-dom";
 import { useFormContext, useWatch } from "react-hook-form";
 
 import type { BiodataSchema } from "../../schemas/biodata.schema";
-
-import { useBiodataStore } from "../../store/biodataStore";
 
 import SectionTitle from "../form/SectionTitle";
 import ReviewSection from "../form/ReviewSection";
@@ -18,24 +15,8 @@ function Review() {
     const values = useWatch({
         control,
     }) ?? getValues();
-    const navigate = useNavigate();
-
-
-    const [searchParams] = useSearchParams();
-
-    const selectedTemplate = searchParams.get("template");
-
-    const setBiodata = useBiodataStore(
-        (state) => state.setBiodata
-    );
 
     const reviewSections = getReviewSections(values);
-    
-    const handleGenerate = () => {
-        setBiodata(getValues());
-
-        navigate("/preview?template=" + selectedTemplate);
-    };
 
     return (
         <div className="space-y-10">
@@ -47,11 +28,9 @@ function Review() {
 
             <div className="grid gap-8 lg:grid-cols-[320px_1fr]">
 
-                {/* Sidebar */}
-
                 <aside className="space-y-6">
 
-                    <div className="lg:sticky lg:top-24 space-y-6">
+                    <div className="space-y-6 lg:sticky lg:top-24">
 
                         <ReviewPhotoCard
                             photoUrl={values.profilePhotoUrl}
@@ -61,26 +40,20 @@ function Review() {
                             city={values.city}
                         />
 
-                        <ReviewGenerateCard
-                            onGenerate={handleGenerate}
-                        />
+                        <ReviewGenerateCard />
 
                     </div>
 
                 </aside>
 
-                {/* Review Sections */}
-
                 <div className="space-y-6">
 
                     {reviewSections.map((section) => (
-
                         <ReviewSection
                             key={section.title}
                             title={section.title}
                             items={section.items}
                         />
-
                     ))}
 
                 </div>

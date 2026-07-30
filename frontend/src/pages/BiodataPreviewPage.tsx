@@ -1,14 +1,21 @@
-import { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 import ResponsivePdfViewer from "../components/pdf/ResponsivePdfViewer";
 import PreviewToolbar from "../components/pdf/PreviewToolbar";
 import TemplateRenderer from "../components/pdf/TemplateRenderer";
 
-import { useBiodataStore } from "../store/biodataStore";
+import { getMyBiodata } from "../features/biodata/api/biodata.service";
+import { biodataToForm } from "../features/biodata/utils/biodata.mapper";
+
+import type { BiodataSchema } from "../schemas/biodata.schema";
+
 import usePrintBiodata from "../hooks/usePrintBiodata";
 
 import { templates } from "../constants/templates";
+
+import { downloadPdf } from "../features/document/api/document.service";
+
 
 type TemplateSlug =
     | "elegant"
@@ -19,15 +26,79 @@ type TemplateSlug =
 
 function BiodataPreviewPage() {
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
 
-    const biodata = useBiodataStore((state) => state.biodata);
+    const initialTemplate =
+        (searchParams.get("template") as TemplateSlug) ??
+        "elegant";
 
     const [template, setTemplate] =
-        useState<TemplateSlug>("elegant");
+        useState<TemplateSlug>(initialTemplate);
+
+    const [biodata, setBiodata] =
+        useState<BiodataSchema | null>(null);
+
+    const [loading, setLoading] =
+        useState(true);
 
     const contentRef = useRef<HTMLDivElement>(null);
 
     const handlePrint = usePrintBiodata(contentRef);
+
+    const handleDownload = async () => {
+        try {
+            const response = await downloadPdf(template);
+
+            const url = window.URL.createObjectURL(response.data);
+
+            const link = document.createElement("a");
+
+            const disposition =
+                response.headers["content-disposition"];
+
+            let filename = "VivahCraft_Biodata.pdf";
+
+            if (disposition) {
+                const match = disposition.match(/filename="?([^"]+)"?/);
+
+                if (match?.[1]) {
+                    filename = match[1];
+                }
+            }
+
+            link.href = url;
+            link.download = filename;
+
+            document.body.appendChild(link);
+
+            link.click();
+
+            link.remove();
+
+            window.URL.revokeObjectURL(url);
+
+        } catch (error) {
+            console.error("Failed to download PDF:", error);
+        }
+    };
+
+    useEffect(() => {
+        console.log("useEffect running");
+
+        async function loadBiodata() {
+            try {
+                const apiData = await getMyBiodata();
+
+                setBiodata(biodataToForm(apiData));
+            } catch (error) {
+                console.error("Failed to load biodata:", error);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        loadBiodata();
+    }, []);
 
     const selectedTemplate = templates.find(
         (t) => t.slug === template
@@ -36,10 +107,19 @@ function BiodataPreviewPage() {
     const requiresPayment =
         (selectedTemplate?.price ?? 0) > 0;
 
+    if (loading) {
+        return (
+            <div className="flex min-h-screen items-center justify-center bg-slate-100">
+                <p className="text-lg font-medium text-slate-600">
+                    Loading biodata...
+                </p>
+            </div>
+        );
+    }
+
     if (!biodata) {
         return (
             <div className="flex min-h-screen items-center justify-center bg-slate-100 px-4">
-
                 <div className="w-full max-w-md rounded-2xl bg-white p-6 text-center shadow-lg">
 
                     <h2 className="text-2xl font-bold">
@@ -47,8 +127,7 @@ function BiodataPreviewPage() {
                     </h2>
 
                     <p className="mt-3 text-slate-600">
-                        Please fill your biodata before
-                        opening the preview.
+                        Please fill your biodata before opening the preview.
                     </p>
 
                     <button
@@ -59,7 +138,6 @@ function BiodataPreviewPage() {
                     </button>
 
                 </div>
-
             </div>
         );
     }
@@ -71,12 +149,10 @@ function BiodataPreviewPage() {
                 template={template}
                 onTemplateChange={setTemplate}
                 onPrint={handlePrint}
-                onDownload={handlePrint}
+                onDownload={handleDownload}
                 requiresPayment={requiresPayment}
                 onContinue={() =>
-                    navigate(
-                        "/payment?template=" + template
-                    )
+                    navigate("/payment?template=" + template)
                 }
             />
 

@@ -46,7 +46,6 @@ function BiodataFormPage() {
         fetchBiodata,
         biodata,
         loading,
-        error,
     } = useBiodataStore();
 
     const {
@@ -82,18 +81,24 @@ function BiodataFormPage() {
     }, [biodata, methods]);
 
     async function onSubmit(data: BiodataSchema) {
+        console.log("onSubmit called");
+
         try {
             const payload = formToBiodataRequest(data);
+
             await save(payload);
+
+            navigate(
+                "/preview?template=" +
+                    (selectedTemplate ?? "elegant")
+            );
         } catch (err) {
             console.error(err);
             alert("Failed to save biodata.");
         }
     }
 
-    const handleGenerate = () => {
-        navigate("/preview?template=" + selectedTemplate);
-    };
+    const handleGenerate = handleSubmit(onSubmit);
 
     return (
         <Layout>
@@ -142,17 +147,9 @@ function BiodataFormPage() {
 
                         <FormCard>
 
-                            {error && (
-                                <div className="mb-6 rounded-xl border border-red-200 bg-red-50 p-4 text-red-600">
-                                    {error}
-                                </div>
-                            )}
-
                             <FormProvider {...methods}>
-                                <form
-                                    onSubmit={handleSubmit(onSubmit)}
-                                    className="space-y-8"
-                                >
+                                <form className="space-y-8">
+
                                     <CurrentStep />
 
                                     <WizardNavigation
@@ -161,8 +158,9 @@ function BiodataFormPage() {
                                         previousStep={previousStep}
                                         nextStep={nextStep}
                                         loading={loading}
-                                        onGenerateClick={handleGenerate}
+                                        onGenerate={handleGenerate}
                                     />
+
                                 </form>
                             </FormProvider>
 

@@ -4,7 +4,7 @@ type Props = {
     previousStep: () => void;
     nextStep: () => void;
     loading: boolean;
-    onGenerateClick: () => void;
+    onGenerate: () => void;
 };
 
 function WizardNavigation({
@@ -13,7 +13,7 @@ function WizardNavigation({
     previousStep,
     nextStep,
     loading,
-    onGenerateClick,
+    onGenerate,
 }: Props) {
     return (
         <div className="mt-10 border-t border-slate-200 pt-6">
@@ -29,30 +29,18 @@ function WizardNavigation({
                     ← Previous
                 </button>
 
-                {!isLastStep ? (
-
-                    <button
-                        type="button"
-                        onClick={nextStep}
-                        className="w-full rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700 sm:w-auto"
-                    >
-                        Next →
-                    </button>
-
-                ) : (
-
-                    <button
-                        type="submit"
-                        disabled={loading}
-                        onClick={onGenerateClick}
-                        className="w-full rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
-                    >
-                        {loading
-                            ? "Generating..."
-                            : "Generate Biodata"}
-                    </button>
-
-                )}
+                <button
+                    type="button"
+                    disabled={loading}
+                    onClick={isLastStep ? onGenerate : nextStep}
+                    className="w-full rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
+                >
+                    {loading
+                        ? "Generating..."
+                        : isLastStep
+                            ? "Generate Biodata"
+                            : "Next →"}
+                </button>
 
             </div>
 
