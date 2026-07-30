@@ -98,7 +98,7 @@ function Navbar() {
 
                                 <button
                                     onClick={() => navigate("/dashboard")}
-                                    className="rounded-full bg-white/10 px-4 py-2 transition hover:bg-white/20"
+                                    className="cursor-pointer rounded-full bg-white/10 px-4 py-2 transition hover:bg-white/20"
                                 >
                                     <span className="font-semibold text-white">
                                         Hi, {user?.name}
@@ -107,7 +107,7 @@ function Navbar() {
 
                                 <button
                                     onClick={handleLogout}
-                                    className="rounded-xl border border-white/20 bg-white/10 px-5 py-2.5 font-semibold text-white transition hover:border-red-500 hover:bg-red-500"
+                                    className="cursor-pointer rounded-xl border border-white/20 bg-white/10 px-5 py-2.5 font-semibold text-white transition hover:border-red-500 hover:bg-red-500"
                                 >
                                     Logout
                                 </button>

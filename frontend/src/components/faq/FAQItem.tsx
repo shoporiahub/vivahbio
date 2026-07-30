@@ -21,7 +21,7 @@ function FAQItem({
                     {question}
                 </h3>
 
-                <span className="text-xl">
+                <span className="cursor-pointer text-xl">
                     {open ? "−" : "+"}
                 </span>
             </button>

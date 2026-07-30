@@ -113,6 +113,7 @@ function DashboardPage() {
 
                         <Button
                             onClick={() => navigate("/biodata")}
+                            className="cursor-pointer"
                         >
                             <Plus size={18} />
                             Create Biodata
@@ -121,6 +122,8 @@ function DashboardPage() {
                         <Button
                             variant="outline"
                             onClick={handleLogout}
+                            className="cursor-pointer"
+
                         >
                             <LogOut size={18} />
                             Logout

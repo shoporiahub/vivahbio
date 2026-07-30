@@ -109,7 +109,7 @@ function RegisterPage() {
                         <Button
                             type="submit"
                             disabled={loading}
-                            className="h-12 w-full rounded-xl text-base font-semibold"
+                            className="cursor-pointer h-12 w-full rounded-xl text-base font-semibold"
                         >
                             {loading
                                 ? "Creating Account..."

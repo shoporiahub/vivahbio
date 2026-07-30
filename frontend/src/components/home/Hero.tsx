@@ -39,14 +39,14 @@ function Hero() {
 
                         <button
                             onClick={() => navigate("/biodata")}
-                            className="rounded-xl bg-white px-8 py-4 font-bold text-blue-800 shadow-xl transition hover:scale-105"
+                            className="cursor-pointer rounded-xl bg-white px-8 py-4 font-bold text-blue-800 shadow-xl transition hover:scale-105"
                         >
                             Create Biodata
                         </button>
 
                         <button
                             onClick={() => navigate("/templates")}
-                            className="rounded-xl border border-white/20 bg-white/10 px-8 py-4 font-semibold text-white transition hover:bg-white/20"
+                            className="cursor-pointer rounded-xl border border-white/20 bg-white/10 px-8 py-4 font-semibold text-white transition hover:bg-white/20"
                         >
                             View Templates
                         </button>

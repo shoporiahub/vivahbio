@@ -70,7 +70,7 @@ function PricingCard({
             </ul>
 
             <button
-                className={`mt-10 w-full rounded-xl px-5 py-3 font-semibold transition ${featured
+                className={`cursor-pointer mt-10 w-full rounded-xl px-5 py-3 font-semibold transition ${featured
                         ? "bg-blue-600 text-white hover:bg-blue-700"
                         : "border border-slate-300 hover:bg-slate-100"
                     }`}

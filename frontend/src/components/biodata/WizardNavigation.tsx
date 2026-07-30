@@ -24,7 +24,7 @@ function WizardNavigation({
                     type="button"
                     disabled={isFirstStep}
                     onClick={previousStep}
-                    className="w-full rounded-xl border border-slate-300 px-6 py-3 font-medium transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
+                    className="cursor-pointer w-full rounded-xl border border-slate-300 px-6 py-3 font-medium transition hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
                 >
                     ← Previous
                 </button>
@@ -33,7 +33,7 @@ function WizardNavigation({
                     type="button"
                     disabled={loading}
                     onClick={isLastStep ? onGenerate : nextStep}
-                    className="w-full rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
+                    className="cursor-pointer w-full rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
                 >
                     {loading
                         ? "Generating..."

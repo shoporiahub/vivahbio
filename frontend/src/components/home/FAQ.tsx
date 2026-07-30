@@ -51,7 +51,7 @@ function FAQ() {
                                     {faq.question}
                                 </span>
 
-                                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-500 text-2xl font-bold text-white transition duration-300">
+                                <div className="cursor-pointer flex h-10 w-10 items-center justify-center rounded-full bg-blue-500 text-2xl font-bold text-white transition duration-300">
                                     {openIndex === index ? "−" : "+"}
                                 </div>
                             </button>
