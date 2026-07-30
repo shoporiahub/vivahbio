@@ -18,6 +18,7 @@ import RootLayout from "../components/RootLayout";
 import PrivacyPolicyPage from "../pages/PrivacyPolicy/PrivacyPolicyPage";
 import TermsOfServicePage from "../pages/TermOfService/TermOfServicePage";
 import PrintPage from "../pages/PrintPage";
+import WriteReviewPage from "../pages/Review/ReviewPage";
 
 const router = createBrowserRouter([
     {
@@ -111,6 +112,12 @@ const router = createBrowserRouter([
                     </ProtectedRoute>
                 ),
             },
+            {
+                path: "/writeReview",
+                element: (
+                    <WriteReviewPage />
+                )
+            }
         ]
     }
 

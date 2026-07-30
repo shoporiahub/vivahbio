@@ -1,6 +1,5 @@
 import type { BiodataSchema } from "../../schemas/biodata.schema";
 
-import ClassicTemplate from "../templates/ClassicTemplate/ClassicTemplate";
 import ModernTemplate from "../templates/ModernTemplate/ModernTemplate";
 import ElegantTemplate from "../templates/ElegantTemplate/ElegantTemplate";
 import GraceTemplate from "../templates/GraceTemplate";
@@ -17,19 +16,20 @@ function TemplateRenderer({
     data,
 }: Props) {
     switch (template) {
-        case "modern":
-            return <ElegantTemplate data={data} />;
-
         case "elegant":
             return <ModernTemplate data={data} />;
 
+        case "modern":
+            return <ElegantTemplate data={data} />;
+
         case "royal":
             return <GraceTemplate data={data} />;
+
         case "luxury":
             return <RoyalTemplate data={data} />
 
         default:
-            return <ClassicTemplate data={data} />;
+            return <ElegantTemplate data={data} />;
     }
 }
 

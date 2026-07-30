@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const testimonials = [
     {
         id: 1,
@@ -40,17 +42,20 @@ function Testimonials() {
 
                     <h2 className="mt-6 text-5xl font-extrabold text-slate-900">
                         Loved by
-                        <span className="text-blue-600"> Thousands of Families</span>
+                        <span className="text-blue-600">
+                            {" "}
+                            Thousands of Families
+                        </span>
                     </h2>
 
                     <p className="mt-6 text-lg leading-8 text-slate-600">
-                        People across India trust Vivaah Bio AI to create
+                        People across India trust VivahCraft AI to create
                         elegant marriage biodatas in minutes.
                     </p>
 
                 </div>
 
-                {/* Cards */}
+                {/* Testimonial Cards */}
 
                 <div className="mt-20 grid gap-10 md:grid-cols-2 xl:grid-cols-3">
 
@@ -62,7 +67,7 @@ function Testimonials() {
 
                             {/* Stars */}
 
-                            <div className="mb-6 flex text-yellow-400 text-xl">
+                            <div className="mb-6 text-xl text-yellow-400">
                                 ★★★★★
                             </div>
 
@@ -76,6 +81,9 @@ function Testimonials() {
 
                             <div className="mt-8 flex items-center">
 
+                                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-blue-100 text-xl font-bold text-blue-700">
+                                    {testimonial.name.charAt(0)}
+                                </div>
 
                                 <div className="ml-4">
 
@@ -96,33 +104,68 @@ function Testimonials() {
 
                 </div>
 
+                {/* Review CTA */}
+
+                <div className="mt-20 rounded-3xl bg-white p-10 text-center shadow-lg">
+
+                    <h3 className="text-3xl font-bold text-slate-900">
+                        Have you created your biodata with VivahCraft?
+                    </h3>
+
+                    <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-slate-600">
+                        We'd love to hear about your experience. Your feedback
+                        helps other families choose VivahCraft with confidence
+                        and helps us build an even better product.
+                    </p>
+
+                    <Link
+                        to="/writeReview"
+                        className="mt-8 inline-flex items-center rounded-xl bg-blue-600 px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:bg-blue-700 hover:shadow-xl"
+                    >
+                        ⭐ Share Your Experience
+                    </Link>
+
+                </div>
+
                 {/* Bottom Stats */}
 
                 <div className="mt-24 grid gap-8 rounded-3xl bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 p-10 text-center text-white md:grid-cols-4">
 
                     <div>
-                        <h3 className="text-4xl font-extrabold">25K+</h3>
+                        <h3 className="text-4xl font-extrabold">
+                            25K+
+                        </h3>
+
                         <p className="mt-2 text-slate-300">
                             Biodatas Created
                         </p>
                     </div>
 
                     <div>
-                        <h3 className="text-4xl font-extrabold">4.9★</h3>
+                        <h3 className="text-4xl font-extrabold">
+                            4.9★
+                        </h3>
+
                         <p className="mt-2 text-slate-300">
                             Average Rating
                         </p>
                     </div>
 
                     <div>
-                        <h3 className="text-4xl font-extrabold">100+</h3>
+                        <h3 className="text-4xl font-extrabold">
+                            100+
+                        </h3>
+
                         <p className="mt-2 text-slate-300">
                             Premium Designs
                         </p>
                     </div>
 
                     <div>
-                        <h3 className="text-4xl font-extrabold">99%</h3>
+                        <h3 className="text-4xl font-extrabold">
+                            99%
+                        </h3>
+
                         <p className="mt-2 text-slate-300">
                             Customer Satisfaction
                         </p>

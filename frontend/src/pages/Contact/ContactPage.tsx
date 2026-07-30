@@ -1,8 +1,81 @@
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+
 import Layout from "../../components/layout/Layout";
+import { createContact } from "../../services/contact.service";
+
+type ContactFormData = {
+    fullName: string;
+    email: string;
+    subject: string;
+    message: string;
+};
 
 function ContactPage() {
+    const [showToast, setShowToast] = useState(false);
+
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: {
+            errors,
+            isSubmitting,
+        },
+    } = useForm<ContactFormData>();
+
+    const onSubmit = async (data: ContactFormData) => {
+        try {
+            await createContact({
+                full_name: data.fullName,
+                email: data.email,
+                subject: data.subject,
+                message: data.message,
+            });
+
+            reset();
+            setShowToast(true);
+
+            setTimeout(() => {
+                setShowToast(false);
+            }, 4000);
+        } catch (error) {
+            console.error(error);
+            alert("Failed to send message.");
+        }
+    };
+
     return (
         <Layout>
+
+            {/* Success Toast */}
+
+            {showToast && (
+                <div className="fixed right-6 top-6 z-50">
+                    <div className="rounded-2xl border border-green-200 bg-white px-6 py-4 shadow-2xl">
+                        <div className="flex items-start gap-3">
+
+                            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-green-100">
+                                ✅
+                            </div>
+
+                            <div>
+
+                                <h3 className="font-semibold text-slate-900">
+                                    Message Sent
+                                </h3>
+
+                                <p className="mt-1 text-sm text-slate-600">
+                                    Thank you for contacting us. We'll get back
+                                    to you as soon as possible.
+                                </p>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Hero */}
 
@@ -63,7 +136,7 @@ function ContactPage() {
                                     </h3>
 
                                     <p className="mt-2 text-slate-600">
-                                        support@vivaahbio.ai
+                                        support@vivahcraft.com
                                     </p>
 
                                 </div>
@@ -126,7 +199,10 @@ function ContactPage() {
                             Send us a Message
                         </h2>
 
-                        <form className="mt-8 space-y-6">
+                        <form
+                            onSubmit={handleSubmit(onSubmit)}
+                            className="mt-8 space-y-6"
+                        >
 
                             <div>
 
@@ -135,10 +211,19 @@ function ContactPage() {
                                 </label>
 
                                 <input
+                                    {...register("fullName", {
+                                        required: "Full name is required",
+                                    })}
                                     type="text"
-                                    placeholder="Enter your name"
+                                    placeholder="Enter your full name"
                                     className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-blue-500"
                                 />
+
+                                {errors.fullName && (
+                                    <p className="mt-2 text-sm text-red-500">
+                                        {errors.fullName.message}
+                                    </p>
+                                )}
 
                             </div>
 
@@ -149,10 +234,19 @@ function ContactPage() {
                                 </label>
 
                                 <input
+                                    {...register("email", {
+                                        required: "Email is required",
+                                    })}
                                     type="email"
                                     placeholder="Enter your email"
                                     className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-blue-500"
                                 />
+
+                                {errors.email && (
+                                    <p className="mt-2 text-sm text-red-500">
+                                        {errors.email.message}
+                                    </p>
+                                )}
 
                             </div>
 
@@ -163,10 +257,19 @@ function ContactPage() {
                                 </label>
 
                                 <input
+                                    {...register("subject", {
+                                        required: "Subject is required",
+                                    })}
                                     type="text"
                                     placeholder="How can we help?"
                                     className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-blue-500"
                                 />
+
+                                {errors.subject && (
+                                    <p className="mt-2 text-sm text-red-500">
+                                        {errors.subject.message}
+                                    </p>
+                                )}
 
                             </div>
 
@@ -177,18 +280,30 @@ function ContactPage() {
                                 </label>
 
                                 <textarea
+                                    {...register("message", {
+                                        required: "Message is required",
+                                    })}
                                     rows={6}
                                     placeholder="Write your message..."
                                     className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-blue-500"
                                 />
 
+                                {errors.message && (
+                                    <p className="mt-2 text-sm text-red-500">
+                                        {errors.message.message}
+                                    </p>
+                                )}
+
                             </div>
 
                             <button
                                 type="submit"
-                                className="w-full rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 py-4 text-lg font-semibold text-white transition hover:scale-[1.02]"
+                                disabled={isSubmitting}
+                                className="w-full rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 py-4 text-lg font-semibold text-white transition hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-60"
                             >
-                                Send Message
+                                {isSubmitting
+                                    ? "Sending..."
+                                    : "Send Message"}
                             </button>
 
                         </form>
