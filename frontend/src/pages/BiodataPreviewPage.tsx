@@ -10,12 +10,9 @@ import { biodataToForm } from "../features/biodata/utils/biodata.mapper";
 
 import type { BiodataSchema } from "../schemas/biodata.schema";
 
-import usePrintBiodata from "../hooks/usePrintBiodata";
-
 import { templates } from "../constants/templates";
 
 import { downloadPdf } from "../features/document/api/document.service";
-
 
 type TemplateSlug =
     | "elegant"
@@ -41,9 +38,33 @@ function BiodataPreviewPage() {
     const [loading, setLoading] =
         useState(true);
 
+    const [isPrinting, setIsPrinting] =
+        useState(false);
+
     const contentRef = useRef<HTMLDivElement>(null);
 
-    const handlePrint = usePrintBiodata(contentRef);
+    const handlePrint = () => {
+        setIsPrinting(true);
+
+        setTimeout(() => {
+            window.print();
+        }, 150);
+    };
+
+    useEffect(() => {
+        const handleAfterPrint = () => {
+            setIsPrinting(false);
+        };
+
+        window.addEventListener("afterprint", handleAfterPrint);
+
+        return () => {
+            window.removeEventListener(
+                "afterprint",
+                handleAfterPrint
+            );
+        };
+    }, []);
 
     const handleDownload = async () => {
         try {
@@ -59,7 +80,8 @@ function BiodataPreviewPage() {
             let filename = "VivahCraft_Biodata.pdf";
 
             if (disposition) {
-                const match = disposition.match(/filename="?([^"]+)"?/);
+                const match =
+                    disposition.match(/filename="?([^"]+)"?/);
 
                 if (match?.[1]) {
                     filename = match[1];
@@ -83,15 +105,20 @@ function BiodataPreviewPage() {
     };
 
     useEffect(() => {
-        console.log("useEffect running");
-
         async function loadBiodata() {
             try {
                 const apiData = await getMyBiodata();
 
-                setBiodata(biodataToForm(apiData));
+                setBiodata(
+                    biodataToForm(apiData)
+                );
+
             } catch (error) {
-                console.error("Failed to load biodata:", error);
+                console.error(
+                    "Failed to load biodata:",
+                    error
+                );
+
             } finally {
                 setLoading(false);
             }
@@ -143,20 +170,36 @@ function BiodataPreviewPage() {
     }
 
     return (
-        <div className="min-h-screen bg-slate-100">
+        <div
+            className={`min-h-screen ${
+                isPrinting
+                    ? "bg-white"
+                    : "bg-slate-100"
+            }`}
+        >
 
-            <PreviewToolbar
-                template={template}
-                onTemplateChange={setTemplate}
-                onPrint={handlePrint}
-                onDownload={handleDownload}
-                requiresPayment={requiresPayment}
-                onContinue={() =>
-                    navigate("/payment?template=" + template)
+            {!isPrinting && (
+                <PreviewToolbar
+                    template={template}
+                    onTemplateChange={setTemplate}
+                    onPrint={handlePrint}
+                    onDownload={handleDownload}
+                    requiresPayment={requiresPayment}
+                    onContinue={() =>
+                        navigate(
+                            "/payment?template=" + template
+                        )
+                    }
+                />
+            )}
+
+            <main
+                className={
+                    isPrinting
+                        ? ""
+                        : "px-3 py-4 sm:px-6 lg:px-10 lg:py-8"
                 }
-            />
-
-            <main className="px-3 py-4 sm:px-6 lg:px-10 lg:py-8">
+            >
 
                 <ResponsivePdfViewer>
 
