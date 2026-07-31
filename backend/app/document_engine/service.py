@@ -1,4 +1,5 @@
 from io import BytesIO
+import traceback
 
 from playwright.async_api import async_playwright
 
@@ -13,43 +14,56 @@ class DocumentEngineService:
         token: str,
     ):
 
-        url = (
-            f"{settings.FRONTEND_URL}"
-            f"/print?template={template}"
-        )
+        try:
 
-        async with async_playwright() as p:
-
-            browser = await p.chromium.launch(
-                headless=True,
+            url = (
+                f"{settings.FRONTEND_URL}"
+                f"/print?template={template}"
             )
 
-            page = await browser.new_page()
+            print("PDF URL:", url)
 
-            # Inject JWT before the React app loads
-            await page.add_init_script(
-                f"""
-                localStorage.setItem(
-                    "access_token",
-                    "{token}"
-                );
-                """
-            )
+            async with async_playwright() as p:
 
-            page.on("console", lambda msg: print(f"[BROWSER] {msg.text}"))      
-            page.on("pageerror", lambda err: print(f"[PAGE ERROR] {err}"))
-            page.on("requestfailed", lambda req: print(f"[REQUEST FAILED] {req.url}"))
+                browser = await p.chromium.launch(
+                    headless=True,
+                )
 
-            await page.goto(
-                url,
-                wait_until="networkidle",
-            )
+                page = await browser.new_page()
 
-            pdf = await page.pdf(
-                format="A4",
-                print_background=True,
-            )
+                await page.add_init_script(
+                    f"""
+                    localStorage.setItem(
+                        "access_token",
+                        "{token}"
+                    );
+                    """
+                )
 
-            await browser.close()
+                page.on("console", lambda msg: print("[BROWSER]", msg.text))
+                page.on("pageerror", lambda err: print("[PAGE ERROR]", err))
+                page.on("requestfailed", lambda req: print("[REQUEST FAILED]", req.url))
 
-        return BytesIO(pdf)
+                await page.goto(
+                    url,
+                    wait_until="networkidle",
+                )
+
+                print("Page Loaded")
+
+                pdf = await page.pdf(
+                    format="A4",
+                    print_background=True,
+                )
+
+                print("PDF Generated")
+
+                await browser.close()
+
+                return BytesIO(pdf)
+
+        except Exception:
+
+            traceback.print_exc()
+
+            raise
