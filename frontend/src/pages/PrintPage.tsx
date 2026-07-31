@@ -63,9 +63,11 @@ export default function PrintPage() {
     }
 
     return (
-        <TemplateRenderer
-            template={template}
-            data={biodata}
-        />
+        <div id="pdf-ready">
+            <TemplateRenderer
+                template={template}
+                data={biodata}
+            />
+        </div>
     );
 }

@@ -64,7 +64,20 @@ class DocumentEngineService:
 
                 print("DOM Loaded")
 
-                await page.wait_for_timeout(2000)
+                print("Waiting for biodata to render...")
+
+                await page.wait_for_selector(
+                    "#pdf-ready",
+                    timeout=30000,
+                )
+
+                print("Biodata rendered")
+
+                await page.evaluate(
+                    "() => document.fonts.ready"
+                )
+
+                print("Fonts loaded")
 
                 print("Generating PDF")
 
@@ -72,6 +85,8 @@ class DocumentEngineService:
                     format="A4",
                     print_background=True,
                 )
+
+                print("PDF Generated")
 
                 print("PDF Generated")
 
