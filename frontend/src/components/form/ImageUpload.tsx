@@ -62,11 +62,10 @@ function ImageUpload({
             {!value ? (
                 <div
                     {...getRootProps()}
-                    className={`rounded-xl border-2 border-dashed p-10 text-center transition-all
-                        ${
-                            isDragActive
-                                ? "border-blue-500 bg-blue-50"
-                                : "border-slate-300 hover:border-blue-500"
+                    className={`w-full overflow-hidden rounded-xl border-2 border-dashed p-6 sm:p-10 text-center transition-all
+                        ${isDragActive
+                            ? "border-blue-500 bg-blue-50"
+                            : "border-slate-300 hover:border-blue-500"
                         }`}
                 >
                     <input {...getInputProps()} />
@@ -120,7 +119,7 @@ function ImageUpload({
                             {(value.size / 1024 / 1024).toFixed(2)} MB
                         </p>
 
-                        <div className="mt-6 flex gap-4">
+                        <div className="mt-6 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
                             <button
                                 type="button"
                                 onClick={open}

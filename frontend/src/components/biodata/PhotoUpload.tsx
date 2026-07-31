@@ -56,7 +56,7 @@ function PhotoUpload() {
                 description="Upload a clear, high-quality profile picture for your marriage biodata."
             />
 
-            <div className="mx-auto w-full max-w-md">
+            <div className="mx-auto w-full max-w-sm px-2 sm:max-w-md sm:px-0">
                 {uploading && (
                     <div className="mb-4 rounded-xl border border-blue-200 bg-blue-50 px-4 py-3 text-center text-sm font-medium text-blue-700">
                         Uploading image...
