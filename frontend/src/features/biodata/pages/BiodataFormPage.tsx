@@ -159,7 +159,7 @@ function BiodataFormPage() {
 
                     </div>
 
-                    <div className="grid gap-6 lg:grid-cols-[300px_1fr] lg:gap-10">
+                    <div className="grid min-w-0 gap-6 lg:grid-cols-[300px_minmax(0,1fr)] lg:gap-10">
 
                         <div className="hidden lg:block">
                             <BiodataSidebar
@@ -172,7 +172,7 @@ function BiodataFormPage() {
 
                             <FormProvider {...methods}>
 
-                                <form className="flex h-full flex-col">
+                                <form className="flex min-w-0 flex-1 flex-col">
 
                                     {/* Step Content */}
 
