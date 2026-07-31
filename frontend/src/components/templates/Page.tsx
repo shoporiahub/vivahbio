@@ -15,12 +15,16 @@ export default function Page({
                     relative
                     w-[794px]
                     h-[1123px]
+                    overflow-hidden
                     bg-white
                     shadow-xl
-                    overflow-hidden
                     print:shadow-none
                     ${className}
                 `}
+                style={{
+                    WebkitPrintColorAdjust: "exact",
+                    printColorAdjust: "exact",
+                }}
             >
                 {children}
             </div>
