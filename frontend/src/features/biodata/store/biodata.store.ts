@@ -10,19 +10,33 @@ import {
     saveBiodata,
 } from "../api/biodata.service";
 
+import type { ImportedBiodata } from "../../import-biodata/services/import.service";
+
 interface BiodataState {
     biodata: Biodata | null;
+
+    importedBiodata: ImportedBiodata | null;
+
     loading: boolean;
     error: string | null;
 
     fetchBiodata: () => Promise<void>;
     save: (data: BiodataRequest) => Promise<void>;
 
+    setImportedBiodata: (
+        data: ImportedBiodata
+    ) => void;
+
+    clearImportedBiodata: () => void;
+
     clear: () => void;
 }
 
 export const useBiodataStore = create<BiodataState>((set) => ({
     biodata: null,
+
+    importedBiodata: null,
+
     loading: false,
     error: null,
 
@@ -87,9 +101,23 @@ export const useBiodataStore = create<BiodataState>((set) => ({
         }
     },
 
+    setImportedBiodata: (data) => {
+        console.log("Saving to Zustand:", data);
+
+        set({
+            importedBiodata: data,
+        });
+    },
+
+    clearImportedBiodata: () =>
+        set({
+            importedBiodata: null,
+        }),
+
     clear: () =>
         set({
             biodata: null,
+            importedBiodata: null,
             loading: false,
             error: null,
         }),

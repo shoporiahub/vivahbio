@@ -28,6 +28,8 @@ import {
     formToBiodataRequest,
 } from "../../../features/biodata/utils/biodata.mapper";
 
+import { importedBiodataToForm } from "../../../features/biodata/utils/importedBiodata.mapper";
+
 function BiodataFormPage() {
     const [searchParams] = useSearchParams();
     const selectedTemplate = searchParams.get("template");
@@ -45,6 +47,8 @@ function BiodataFormPage() {
         save,
         fetchBiodata,
         biodata,
+        importedBiodata,
+        clearImportedBiodata,
         loading,
     } = useBiodataStore();
 
@@ -61,6 +65,10 @@ function BiodataFormPage() {
     const CurrentStep = FORM_STEPS[currentStep].component;
 
     useEffect(() => {
+        if (importedBiodata) {
+            return;
+        }
+
         async function loadBiodata() {
             try {
                 await fetchBiodata();
@@ -70,27 +78,43 @@ function BiodataFormPage() {
         }
 
         loadBiodata();
-    }, [fetchBiodata]);
+    }, [fetchBiodata, importedBiodata]);
 
     useEffect(() => {
-        if (biodata) {
-            methods.reset(biodataToForm(biodata));
-        } else {
-            methods.reset(defaultBiodataValues);
+        if (importedBiodata) {
+            methods.reset(
+                importedBiodataToForm(importedBiodata)
+            );
+            return;
         }
-    }, [biodata, methods]);
+
+        if (biodata) {
+            methods.reset(
+                biodataToForm(biodata)
+            );
+        } else {
+            methods.reset(
+                defaultBiodataValues
+            );
+        }
+    }, [
+        importedBiodata,
+        biodata,
+        methods,
+    ]);
 
     async function onSubmit(data: BiodataSchema) {
-        console.log("onSubmit called");
-
         try {
             const payload = formToBiodataRequest(data);
 
             await save(payload);
 
+            // Imported draft is no longer needed
+            clearImportedBiodata();
+
             navigate(
                 "/preview?template=" +
-                    (selectedTemplate ?? "elegant")
+                (selectedTemplate ?? "elegant")
             );
         } catch (err) {
             console.error(err);
@@ -137,7 +161,6 @@ function BiodataFormPage() {
 
                     <div className="grid gap-6 lg:grid-cols-[300px_1fr] lg:gap-10">
 
-                        {/* Desktop Sidebar */}
                         <div className="hidden lg:block">
                             <BiodataSidebar
                                 currentStep={currentStep}
@@ -148,9 +171,18 @@ function BiodataFormPage() {
                         <FormCard>
 
                             <FormProvider {...methods}>
-                                <form className="space-y-8">
 
-                                    <CurrentStep />
+                                <form className="flex h-full flex-col">
+
+                                    {/* Step Content */}
+
+                                    <div className="flex-1">
+
+                                        <CurrentStep />
+
+                                    </div>
+
+                                    {/* Navigation */}
 
                                     <WizardNavigation
                                         isFirstStep={isFirstStep}
@@ -162,6 +194,7 @@ function BiodataFormPage() {
                                     />
 
                                 </form>
+
                             </FormProvider>
 
                         </FormCard>

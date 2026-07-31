@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
@@ -15,6 +15,9 @@ import Button from "../../../components/ui/Button";
 
 function RegisterPage() {
     const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+
+    const redirect = searchParams.get("redirect");
 
     const registerUser = useAuthStore((state) => state.register);
     const loading = useAuthStore((state) => state.loading);
@@ -31,7 +34,7 @@ function RegisterPage() {
         try {
             await registerUser(data);
 
-            navigate("/");
+            navigate(redirect ?? "/");
         } catch (error) {
             console.error(error);
             alert("Registration failed");
@@ -109,7 +112,7 @@ function RegisterPage() {
                         <Button
                             type="submit"
                             disabled={loading}
-                            className="cursor-pointer h-12 w-full rounded-xl text-base font-semibold"
+                            className="h-12 w-full cursor-pointer rounded-xl text-base font-semibold"
                         >
                             {loading
                                 ? "Creating Account..."
@@ -117,7 +120,7 @@ function RegisterPage() {
                         </Button>
                     </form>
 
-                    <div className="mt-8 border-t border-slate-200 pt-6 text-center space-y-4">
+                    <div className="mt-8 space-y-4 border-t border-slate-200 pt-6 text-center">
 
                         <Link
                             to="/"
@@ -133,7 +136,11 @@ function RegisterPage() {
                             </p>
 
                             <Link
-                                to="/login"
+                                to={
+                                    redirect
+                                        ? `/login?redirect=${encodeURIComponent(redirect)}`
+                                        : "/login"
+                                }
                                 className="mt-2 inline-block font-semibold text-blue-600 transition hover:text-blue-700"
                             >
                                 Login →

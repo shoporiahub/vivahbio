@@ -5,6 +5,16 @@ import heroImage from "../../assets/biodata.png";
 function Hero() {
     const navigate = useNavigate();
 
+    const handleImportBiodata = () => {
+        const token = localStorage.getItem("access_token");
+
+        if (token) {
+            navigate("/import-biodata");
+        } else {
+            navigate("/login?redirect=/import-biodata");    
+        }
+    };
+
     return (
         <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
 
@@ -17,7 +27,6 @@ function Hero() {
 
                 {/* Left Side */}
                 <div className="flex-1">
-
 
                     <h1 className="mt-8 text-6xl font-extrabold leading-tight text-white">
                         Create Stunning
@@ -51,26 +60,30 @@ function Hero() {
                             View Templates
                         </button>
 
+                        <button
+                            onClick={handleImportBiodata}
+                            className="cursor-pointer rounded-xl border border-blue-400 bg-blue-600 px-8 py-4 font-semibold text-white transition hover:bg-blue-700"
+                        >
+                            Import Existing Biodata
+                        </button>
+
                     </div>
 
                 </div>
 
                 {/* Right Side */}
-
                 <div className="flex flex-1 justify-center">
 
                     <div className="relative">
 
-                        {/* Glow */}
                         <div className="absolute inset-0 rounded-3xl bg-blue-500/30 blur-3xl"></div>
 
                         <div className="relative overflow-hidden rounded-3xl bg-white p-3 shadow-2xl">
 
-                            {/* Replace with your image */}
                             <img
                                 src={heroImage}
                                 alt="Marriage Biodata Preview"
-                                className="w-[550px] lg:w-[650px] xl:w-[700px] rounded-3xl object-cover drop-shadow-2xl transition duration-300 hover:scale-105"
+                                className="w-[550px] rounded-3xl object-cover drop-shadow-2xl transition duration-300 hover:scale-105 lg:w-[650px] xl:w-[700px]"
                                 onClick={() => navigate("/templates")}
                             />
 

@@ -38,7 +38,6 @@ function PhotoUpload() {
                 shouldValidate: true,
             });
 
-            console.log("Uploaded URL:", url);
         } catch (error) {
             console.error(error);
 

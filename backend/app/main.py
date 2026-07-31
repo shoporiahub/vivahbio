@@ -6,7 +6,9 @@ import app.core.cloudinary
 
 # Routers
 from app.auth.router import router as auth_router
+
 from app.biodata.router import router as biodata_router
+
 from app.upload.router import router as upload_router
 
 from app.route.payment import router as payment_router
@@ -16,6 +18,8 @@ from app.contact.router import router as contact_router
 from app.review.router import router as review_router
 
 from app.document_engine.router import router as document_router
+
+from app.import_biodata.router import router as import_biodata_router
 
 app = FastAPI(
     title="DocCraft AI API",
@@ -49,6 +53,7 @@ app.include_router(payment_router)
 app.include_router(contact_router)
 app.include_router(review_router)
 app.include_router(document_router)
+app.include_router(import_biodata_router)
 
 
 @app.get("/")

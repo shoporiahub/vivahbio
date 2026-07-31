@@ -19,6 +19,8 @@ import PrivacyPolicyPage from "../pages/PrivacyPolicy/PrivacyPolicyPage";
 import TermsOfServicePage from "../pages/TermOfService/TermOfServicePage";
 import PrintPage from "../pages/PrintPage";
 import WriteReviewPage from "../pages/Review/ReviewPage";
+import ImportBiodataPage from "../features/import-biodata/pages/ImportBiodataPage";
+
 
 const router = createBrowserRouter([
     {
@@ -116,6 +118,12 @@ const router = createBrowserRouter([
                 path: "/writeReview",
                 element: (
                     <WriteReviewPage />
+                )
+            },
+            {
+                path: "/import-biodata",
+                element: (
+                    <ImportBiodataPage/>
                 )
             }
         ]

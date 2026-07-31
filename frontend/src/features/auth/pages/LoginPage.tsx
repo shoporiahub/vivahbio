@@ -1,6 +1,10 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Link, useNavigate } from "react-router-dom";
+import {
+  Link,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
 
 import {
   loginSchema,
@@ -11,6 +15,9 @@ import { useAuthStore } from "../store/auth.store";
 
 function LoginPage() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+
+  const redirect = searchParams.get("redirect");
 
   const login = useAuthStore((state) => state.login);
   const loading = useAuthStore((state) => state.loading);
@@ -27,7 +34,7 @@ function LoginPage() {
     try {
       await login(data);
 
-      navigate("/");
+      navigate(redirect ?? "/");
     } catch (error) {
       console.error(error);
 
@@ -107,7 +114,7 @@ function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="cursor-pointer h-12 w-full rounded-xl bg-blue-600 text-lg font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-70"
+              className="h-12 w-full cursor-pointer rounded-xl bg-blue-600 text-lg font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-70"
             >
               {loading ? "Logging in..." : "Login"}
             </button>
@@ -121,7 +128,11 @@ function LoginPage() {
             </p>
 
             <Link
-              to="/register"
+              to={
+                redirect
+                  ? `/register?redirect=${encodeURIComponent(redirect)}`
+                  : "/register"
+              }
               className="mt-2 inline-block font-semibold text-blue-600 hover:text-blue-700"
             >
               Create Account →

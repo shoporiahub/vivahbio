@@ -82,11 +82,10 @@ function PreviewToolbar({
                                 onClick={() =>
                                     onTemplateChange(item)
                                 }
-                                className={`rounded-xl px-5 py-2 font-medium capitalize transition ${
-                                    template === item
+                                className={`rounded-xl px-5 py-2 font-medium capitalize transition ${template === item
                                         ? "bg-blue-600 text-white"
                                         : "border border-slate-300 bg-white hover:bg-slate-100"
-                                }`}
+                                    }`}
                             >
                                 {item}
                             </button>
@@ -112,13 +111,14 @@ function PreviewToolbar({
                         ) : (
 
                             <>
+                                <DownloadButton
+                                    onClick={onDownload}
+                                />
                                 <PrintButton
                                     onClick={onPrint}
                                 />
 
-                                <DownloadButton
-                                    onClick={onDownload}
-                                />
+
                             </>
 
                         )}

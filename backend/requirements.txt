@@ -24,3 +24,9 @@ playwright==1.61.0
 
 httpx==0.28.1
 requests==2.34.2
+
+# AI
+openai==2.51.0
+
+# PDF Processing
+PyMuPDF==1.28.0

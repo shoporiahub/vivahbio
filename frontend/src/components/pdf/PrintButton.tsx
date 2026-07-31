@@ -8,7 +8,7 @@ function PrintButton({
     return (
         <button
             onClick={onClick}
-            className="rounded-lg border border-slate-300 bg-white px-4 py-2 hover:bg-slate-100"
+            className="cursor-pointer rounded-lg border border-slate-300 bg-white px-4 py-2 hover:bg-slate-100"
         >
             🖨 Print
         </button>
