@@ -1,0 +1,13 @@
+User-agent: *
+
+Allow: /
+
+Disallow: /dashboard
+Disallow: /payment
+Disallow: /preview
+Disallow: /print
+Disallow: /biodata
+Disallow: /import-biodata
+Disallow: /writeReview
+
+Sitemap: https://www.vivahcraft.com/sitemap.xml
