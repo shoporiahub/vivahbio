@@ -3,7 +3,7 @@ export const PLANS = [
         name: "Free",
         price: "₹0",
         period: "/month",
-        description: "Perfect for trying Vivaah Bio AI.",
+        description: "Perfect for trying Vivah Craft.",
         features: [
             "1 biodata generation per month",
             "Free templates",

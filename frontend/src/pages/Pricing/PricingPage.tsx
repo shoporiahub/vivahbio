@@ -51,7 +51,7 @@ function PricingPage() {
                 <div className="mx-auto max-w-6xl px-6">
                     <div className="text-center">
                         <h2 className="text-4xl font-bold text-slate-900">
-                            Why Choose Vivaah Bio AI?
+                            Why Choose Vivah Craft?
                         </h2>
 
                         <p className="mt-4 text-lg text-slate-600">

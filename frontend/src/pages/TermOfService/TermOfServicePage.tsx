@@ -33,7 +33,7 @@ export default function TermsOfServicePage() {
                         </h2>
 
                         <p className="mt-3">
-                            VivahBio provides AI-powered marriage biodata
+                            VivahCraft provides AI-powered marriage biodata
                             creation tools that allow users to generate,
                             customize and download professional marriage
                             biodatas for personal use.
@@ -68,7 +68,7 @@ export default function TermsOfServicePage() {
                             Biodatas generated through our AI are created
                             automatically based on the information provided by
                             you. While we strive for high quality results,
-                            VivahBio does not guarantee that AI-generated
+                            VivahCraft does not guarantee that AI-generated
                             content will always be accurate, complete or free
                             from errors.
                         </p>
@@ -87,7 +87,7 @@ export default function TermsOfServicePage() {
 
                         <p className="mt-3">
                             Payments are processed securely through trusted
-                            payment providers. VivahBio does not store your
+                            payment providers. VivahCraft does not store your
                             payment card information.
                         </p>
                     </section>
@@ -114,7 +114,7 @@ export default function TermsOfServicePage() {
                         <p className="mt-3">
                             All website content, branding, logos, templates,
                             designs and software remain the property of
-                            VivahBio unless otherwise stated.
+                            VivahCraft unless otherwise stated.
                         </p>
 
                         <p className="mt-3">
@@ -141,7 +141,7 @@ export default function TermsOfServicePage() {
                         </h2>
 
                         <p className="mt-3">
-                            VivahBio shall not be liable for any indirect,
+                            VivahCraft shall not be liable for any indirect,
                             incidental or consequential damages resulting from
                             the use of our services or reliance on generated
                             biodatas.

@@ -102,7 +102,7 @@ export default function PrivacyPolicyPage() {
 
                         <p className="mt-3">
                             Payments are processed through trusted third-party
-                            payment gateways. VivahBio does not store your
+                            payment gateways. VivahCraft does not store your
                             debit card, credit card or banking credentials.
                         </p>
                     </section>
@@ -173,7 +173,7 @@ export default function PrivacyPolicyPage() {
                         </h2>
 
                         <p className="mt-3">
-                            VivahBio is intended for adults. We do not
+                            VivahCraft is intended for adults. We do not
                             knowingly collect personal information from
                             individuals under the age of 18.
                         </p>

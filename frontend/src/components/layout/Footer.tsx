@@ -14,7 +14,7 @@ function Footer() {
                     <div>
 
                         <h2 className="text-3xl font-extrabold">
-                            Vivaah Bio
+                            Vivah craft
                             <span className="text-blue-400"> AI</span>
                         </h2>
 
@@ -61,7 +61,7 @@ function Footer() {
                         <div className="mt-6 space-y-4 text-slate-300">
 
                             <p>
-                                📧 support@vivaahbio.ai
+                                📧 support@vivahcraft.ai
                             </p>
 
                             <p>
@@ -132,7 +132,7 @@ function Footer() {
                     <div className="flex flex-col items-center justify-between gap-4 text-center text-sm text-slate-400 md:flex-row">
 
                         <p>
-                            © 2026 Vivaah Bio AI. All rights reserved.
+                            © 2026 Vivah Craft. All rights reserved.
                         </p>
 
                         <div className="flex gap-6">

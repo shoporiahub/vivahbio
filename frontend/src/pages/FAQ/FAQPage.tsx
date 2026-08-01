@@ -31,7 +31,7 @@ function FAQPage() {
 
                     <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-300">
                         Find answers to the most common questions about
-                        Vivaah Bio AI, premium templates, payments,
+                        Vivah Craft, premium templates, payments,
                         downloads and account support.
                     </p>
 

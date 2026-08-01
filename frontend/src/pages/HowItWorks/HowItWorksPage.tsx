@@ -64,7 +64,7 @@ function HowItWorksPage() {
                     <div className="text-center">
 
                         <h2 className="text-4xl font-extrabold text-slate-900">
-                            Why Choose Vivaah Bio AI?
+                            Why Choose Vivah Craft?
                         </h2>
 
                         <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-600">
@@ -133,7 +133,7 @@ function HowItWorksPage() {
                     </h2>
 
                     <p className="mt-6 text-lg leading-8 text-slate-300">
-                        Join thousands of families who trust Vivaah Bio AI
+                        Join thousands of families who trust Vivah Craft
                         to create elegant marriage biodatas in minutes.
                     </p>
 

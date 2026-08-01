@@ -113,9 +113,9 @@ function HamburgerMenu({ isOpen, onClose }: Props) {
                     </div>
 
                     <h2 className="text-3xl font-extrabold">
-                        Vivaah{" "}
+                        Vivah{" "}
                         <span className="text-blue-300">
-                            Bio AI
+                            Craft
                         </span>
                     </h2>
 

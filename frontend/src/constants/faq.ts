@@ -27,6 +27,6 @@ export const FAQS = [
     {
         question: "Do I need any design skills?",
         answer:
-            "Not at all. Vivaah Bio AI automatically creates a beautifully designed marriage biodata for you. Simply enter your details and let AI handle the design.",
+            "Not at all. Vivah Craft automatically creates a beautifully designed marriage biodata for you. Simply enter your details and let AI handle the design.",
     },
 ];

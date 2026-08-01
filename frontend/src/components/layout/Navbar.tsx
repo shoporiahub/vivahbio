@@ -5,6 +5,7 @@ import { Menu } from "lucide-react";
 import { NAVIGATION } from "../../constants/navigation";
 import { useAuthStore } from "../../features/auth/store/auth.store";
 import HamburgerMenu from "./HamburgerMenu";
+import logo from "../../assets/vivahcraftlogo.png";
 
 function Navbar() {
     const navigate = useNavigate();
@@ -33,12 +34,20 @@ function Navbar() {
 
                     <NavLink
                         to="/"
-                        className="text-2xl font-extrabold tracking-tight text-white transition hover:opacity-90 md:text-3xl"
+                        className="flex items-center gap-3 transition hover:opacity-90"
                     >
-                        Vivaah{" "}
-                        <span className="text-blue-300">
-                            Bio AI
-                        </span>
+                        <img
+                            src={logo}
+                            alt="VivahCraft Logo"
+                            className="h-10 w-10 md:h-12 md:w-12 object-contain"
+                        />
+
+                        <div className="text-2xl font-extrabold tracking-tight text-white md:text-3xl">
+                            Vivah{" "}
+                            <span className="text-blue-300">
+                                Craft
+                            </span>
+                        </div>
                     </NavLink>
 
                     {/* Desktop Navigation */}
