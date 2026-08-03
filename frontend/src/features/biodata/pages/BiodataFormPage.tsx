@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate, useSearchParams } from "react-router-dom";
@@ -36,6 +36,8 @@ function BiodataFormPage() {
 
     const navigate = useNavigate();
 
+    const formRef = useRef<HTMLDivElement>(null);
+
     const methods = useForm<BiodataFormValues, unknown, BiodataSchema>({
         resolver: zodResolver(biodataSchema),
         defaultValues: defaultBiodataValues,
@@ -63,6 +65,24 @@ function BiodataFormPage() {
     });
 
     const CurrentStep = FORM_STEPS[currentStep].component;
+
+    const handleNext = async () => {
+        await nextStep();
+
+        formRef.current?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+        });
+    };
+
+    const handlePrevious = () => {
+        previousStep();
+
+        formRef.current?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+        });
+    };
 
     useEffect(() => {
         if (importedBiodata) {
@@ -168,36 +188,39 @@ function BiodataFormPage() {
                             />
                         </div>
 
-                        <FormCard>
+                        <div ref={formRef}>
 
-                            <FormProvider {...methods}>
+                            <FormCard>
 
-                                <form className="flex min-w-0 flex-1 flex-col">
+                                <FormProvider {...methods}>
 
-                                    {/* Step Content */}
+                                    <form className="flex min-w-0 flex-1 flex-col">
 
-                                    <div className="flex-1">
+                                        {/* Step Content */}
 
-                                        <CurrentStep />
+                                        <div className="flex-1">
 
-                                    </div>
+                                            <CurrentStep />
 
-                                    {/* Navigation */}
+                                        </div>
 
-                                    <WizardNavigation
-                                        isFirstStep={isFirstStep}
-                                        isLastStep={isLastStep}
-                                        previousStep={previousStep}
-                                        nextStep={nextStep}
-                                        loading={loading}
-                                        onGenerate={handleGenerate}
-                                    />
+                                        {/* Navigation */}
 
-                                </form>
+                                        <WizardNavigation
+                                            isFirstStep={isFirstStep}
+                                            isLastStep={isLastStep}
+                                            previousStep={handlePrevious}
+                                            nextStep={handleNext}
+                                            loading={loading}
+                                            onGenerate={handleGenerate}
+                                        />
 
-                            </FormProvider>
+                                    </form>
 
-                        </FormCard>
+                                </FormProvider>
+
+                            </FormCard>
+                        </div>
 
                     </div>
 
