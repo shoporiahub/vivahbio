@@ -8,18 +8,18 @@ function Features() {
                 {/* Section Header */}
                 <div className="mx-auto max-w-3xl text-center">
 
-
                     <h2 className="mt-6 text-5xl font-extrabold tracking-tight text-slate-900">
-                        Create Your Marriage Biodata
+                        Create Your Professional
                         <span className="text-blue-600">
-                            {" "}in 3 Easy Steps
+                            {" "}Marriage Biodata in 3 Easy Steps
                         </span>
                     </h2>
 
                     <p className="mt-6 text-lg leading-8 text-slate-600">
-                        Creating a professional marriage biodata has never been easier.
-                        Just fill in your details, choose your favorite design,
-                        and download a beautiful PDF ready to share.
+                        Design a professional marriage biodata in just a few
+                        simple steps. Enter your details, select your preferred
+                        template, and download a high-quality PDF that's ready
+                        to print or share digitally.
                     </p>
 
                 </div>

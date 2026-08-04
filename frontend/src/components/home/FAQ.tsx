@@ -21,15 +21,16 @@ function FAQ() {
                     </span>
 
                     <h2 className="mt-6 text-5xl font-extrabold text-white">
-                        Got Questions?
+                        Frequently Asked
                         <span className="text-blue-300">
-                            {" "}We've Got Answers
+                            {" "}Questions
                         </span>
                     </h2>
 
                     <p className="mt-6 text-lg leading-8 text-slate-300">
-                        Find answers to the most common questions about creating,
-                        downloading, and sharing your marriage biodata.
+                        Find answers to common questions about creating,
+                        customizing, downloading, and printing your marriage
+                        biodata PDF.
                     </p>
 
                 </div>

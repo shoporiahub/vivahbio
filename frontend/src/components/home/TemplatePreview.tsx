@@ -14,20 +14,20 @@ function TemplatePreview() {
                 <div className="mx-auto max-w-3xl text-center">
 
                     <span className="rounded-full bg-blue-500/20 px-4 py-2 text-sm font-semibold text-blue-200">
-                        Premium Designs
+                        Premium Templates
                     </span>
 
                     <h2 className="mt-6 text-5xl font-extrabold text-white">
-                        Choose Your Perfect
+                        Explore Our
                         <span className="text-blue-300">
-                            {" "}Marriage Biodata Template
+                            {" "}Marriage Biodata Templates
                         </span>
                     </h2>
 
                     <p className="mt-6 text-lg leading-8 text-slate-300">
-                        Select from our collection of beautifully crafted
-                        marriage biodata templates designed to leave a lasting
-                        impression.
+                        Browse professionally designed marriage biodata templates.
+                        Select a layout that suits your preferences and create
+                        a high-quality PDF in just a few minutes.
                     </p>
 
                 </div>

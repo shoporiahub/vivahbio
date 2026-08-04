@@ -11,7 +11,7 @@ function Hero() {
         if (token) {
             navigate("/import-biodata");
         } else {
-            navigate("/login?redirect=/import-biodata");    
+            navigate("/login?redirect=/import-biodata");
         }
     };
 
@@ -29,19 +29,19 @@ function Hero() {
                 <div className="flex-1">
 
                     <h1 className="mt-8 text-6xl font-extrabold leading-tight text-white">
-                        Create Stunning
+                        Create Professional
                         <span className="text-blue-300">
                             {" "}Marriage Biodatas
                         </span>
                         <br />
-                        Within Minutes
+                        In Minutes
                     </h1>
 
                     <p className="mt-8 max-w-xl text-lg leading-8 text-slate-300">
-                        Create a beautifully designed marriage biodata in just
-                        a few simple steps. Enter your personal details, choose
-                        a premium template, and download a professional PDF
-                        ready to share with your family and prospective matches.
+                        Create a professionally designed marriage biodata in just
+                        a few simple steps. Enter your details, choose a premium
+                        template, and download a high-quality PDF that is ready
+                        to print or share digitally.
                     </p>
 
                     <div className="mt-10 flex flex-wrap gap-5">
@@ -82,7 +82,7 @@ function Hero() {
 
                             <img
                                 src={heroImage}
-                                alt="Marriage Biodata Preview"
+                                alt="Professional Marriage Biodata PDF Preview"
                                 className="w-[550px] rounded-3xl object-cover drop-shadow-2xl transition duration-300 hover:scale-105 lg:w-[650px] xl:w-[700px]"
                                 onClick={() => navigate("/templates")}
                             />

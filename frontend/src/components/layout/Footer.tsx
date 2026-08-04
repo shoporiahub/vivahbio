@@ -14,14 +14,14 @@ function Footer() {
                     <div>
 
                         <h2 className="text-3xl font-extrabold">
-                            Vivah craft
+                            Vivah Craft
                             <span className="text-blue-400"> AI</span>
                         </h2>
 
                         <p className="mt-6 leading-8 text-slate-300">
-                            Create beautiful marriage biodatas with the power of AI.
-                            Simply fill in your details, choose a premium design,
-                            and download a professional PDF in minutes.
+                            AI-powered marriage biodata creation platform.
+                            Enter your details, choose a professional template,
+                            and download a high-quality PDF in minutes.
                         </p>
 
                     </div>
@@ -86,7 +86,7 @@ function Footer() {
 
                         <p className="mt-6 text-slate-300">
                             Stay connected for new templates,
-                            updates, and product announcements.
+                            product updates, and feature releases.
                         </p>
 
                         <div className="mt-8 flex gap-4">

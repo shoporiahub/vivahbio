@@ -7,7 +7,7 @@ const testimonials = [
         city: "Delhi",
         image: "/testimonials/user1.jpg",
         review:
-            "Creating my marriage biodata was incredibly simple. The templates looked premium, and I received many compliments from my family.",
+            "Creating my marriage biodata was incredibly simple. The templates looked professional, and the final PDF was exactly what I needed.",
     },
     {
         id: 2,
@@ -37,20 +37,19 @@ function Testimonials() {
                 <div className="mx-auto max-w-3xl text-center">
 
                     <span className="rounded-full bg-blue-100 px-4 py-2 text-sm font-semibold text-blue-700">
-                        Testimonials
+                        Customer Reviews
                     </span>
 
                     <h2 className="mt-6 text-5xl font-extrabold text-slate-900">
-                        Loved by
+                        Trusted by
                         <span className="text-blue-600">
-                            {" "}
-                            Thousands of Families
+                            {" "}Thousands of Users
                         </span>
                     </h2>
 
                     <p className="mt-6 text-lg leading-8 text-slate-600">
-                        People across India trust VivahCraft AI to create
-                        elegant marriage biodatas in minutes.
+                        Users across India use VivahCraft to create
+                        professional marriage biodata PDFs in minutes.
                     </p>
 
                 </div>
@@ -109,13 +108,13 @@ function Testimonials() {
                 <div className="mt-20 rounded-3xl bg-white p-10 text-center shadow-lg">
 
                     <h3 className="text-3xl font-bold text-slate-900">
-                        Have you created your biodata with VivahCraft?
+                        Created Your Biodata with VivahCraft?
                     </h3>
 
                     <p className="mx-auto mt-4 max-w-2xl text-lg leading-8 text-slate-600">
                         We'd love to hear about your experience. Your feedback
-                        helps other families choose VivahCraft with confidence
-                        and helps us build an even better product.
+                        helps us improve VivahCraft and helps others learn about
+                        our marriage biodata creation service.
                     </p>
 
                     <Link
@@ -133,7 +132,7 @@ function Testimonials() {
 
                     <div>
                         <h3 className="text-4xl font-extrabold">
-                            25K+
+                            2K+
                         </h3>
 
                         <p className="mt-2 text-slate-300">
@@ -153,11 +152,11 @@ function Testimonials() {
 
                     <div>
                         <h3 className="text-4xl font-extrabold">
-                            100+
+                            10+
                         </h3>
 
                         <p className="mt-2 text-slate-300">
-                            Premium Designs
+                            Premium Templates
                         </p>
                     </div>
 
