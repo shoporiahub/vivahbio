@@ -1,4 +1,3 @@
-
 import classicTemplate from "../assets/mb1.png";
 import modernTemplate from "../assets/mb2.png";
 import premiumTemplate from "../assets/mb3.png";
@@ -19,7 +18,8 @@ export const templates: Template[] = [
         slug: "elegant",
         name: "Elegant",
         price: 0,
-        description: "Simple and elegant biodata design.",
+        description:
+            "A clean and professional marriage biodata template with a simple and elegant layout.",
         image: classicTemplate,
     },
     {
@@ -27,7 +27,8 @@ export const templates: Template[] = [
         slug: "modern",
         name: "Modern",
         price: 0,
-        description: "Clean and modern premium layout.",
+        description:
+            "A modern marriage biodata template featuring a clean layout and professional typography.",
         image: modernTemplate,
     },
     {
@@ -35,7 +36,8 @@ export const templates: Template[] = [
         slug: "royal",
         name: "Royal",
         price: 0,
-        description: "Luxury design with premium styling.",
+        description:
+            "A premium marriage biodata template with an elegant design and refined styling.",
         image: premiumTemplate,
     },
     {
@@ -43,15 +45,8 @@ export const templates: Template[] = [
         slug: "luxury",
         name: "Luxury",
         price: 49,
-        description: "Professional luxury biodata template.",
+        description:
+            "A luxury marriage biodata template designed for a polished and professional PDF.",
         image: RoyalTemplate,
     },
-    // {
-    //     id: 5,
-    //     slug: "signature",
-    //     name: "Signature",
-    //     price: 499,
-    //     description: "Our highest-end premium template.",
-    //     image: modernTemplate,
-    // },
 ];

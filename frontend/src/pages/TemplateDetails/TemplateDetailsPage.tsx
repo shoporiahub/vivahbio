@@ -76,7 +76,7 @@ function TemplateDetailsPage() {
                 <div className="mx-auto max-w-6xl px-8 text-center">
 
                     <span className="rounded-full bg-blue-500/20 px-4 py-2 text-sm font-semibold text-blue-200">
-                        Premium Marriage Biodata Template
+                        Professional Marriage Biodata Template
                     </span>
 
                     <h1 className="mt-6 text-5xl font-extrabold text-white lg:text-6xl">
@@ -105,7 +105,7 @@ function TemplateDetailsPage() {
 
                             <img
                                 src={template.image}
-                                alt={template.name}
+                                alt={`${template.name} Marriage Biodata Template`}
                                 className="w-full object-cover"
                             />
 
@@ -124,7 +124,7 @@ function TemplateDetailsPage() {
                             </span>
 
                             <span className="text-slate-500">
-                                Trusted by thousands of families
+                                Trusted by thousands of users
                             </span>
 
                         </div>
@@ -133,9 +133,11 @@ function TemplateDetailsPage() {
                             {template.name}
                         </h2>
 
-                        {template.price > 0 && <p className="mt-8 text-5xl font-extrabold text-blue-600">
-                            ₹{template.price}
-                        </p>}
+                        {template.price > 0 && (
+                            <p className="mt-8 text-5xl font-extrabold text-blue-600">
+                                ₹{template.price}
+                            </p>
+                        )}
 
                         <p className="mt-8 text-lg leading-8 text-slate-600">
                             {template.description}
@@ -147,12 +149,12 @@ function TemplateDetailsPage() {
 
                             <div className="flex items-center gap-4">
                                 <span className="text-2xl">✅</span>
-                                <span>Premium professionally designed layout</span>
+                                <span>Professional premium layout</span>
                             </div>
 
                             <div className="flex items-center gap-4">
                                 <span className="text-2xl">✅</span>
-                                <span>AI-generated biodata</span>
+                                <span>AI-generated marriage biodata</span>
                             </div>
 
                             <div className="flex items-center gap-4">
@@ -162,17 +164,17 @@ function TemplateDetailsPage() {
 
                             <div className="flex items-center gap-4">
                                 <span className="text-2xl">✅</span>
-                                <span>Mobile & desktop friendly</span>
+                                <span>Works on mobile & desktop</span>
                             </div>
 
                             <div className="flex items-center gap-4">
                                 <span className="text-2xl">✅</span>
-                                <span>Unlimited downloads</span>
+                                <span>Unlimited PDF downloads</span>
                             </div>
 
                             <div className="flex items-center gap-4">
                                 <span className="text-2xl">✅</span>
-                                <span>Perfect for marriage proposals</span>
+                                <span>Ideal for professional biodata documents</span>
                             </div>
 
                         </div>
@@ -185,7 +187,7 @@ function TemplateDetailsPage() {
                                 to={`/biodata?template=${template.slug}`}
                                 className="block w-full rounded-2xl bg-blue-600 py-5 text-center text-lg font-bold text-white transition hover:bg-blue-700"
                             >
-                                Create Biodata with This Template
+                                Use This Template
                             </Link>
 
                             <Link
@@ -202,7 +204,6 @@ function TemplateDetailsPage() {
                 </div>
 
             </section>
-
             {/* Included */}
 
             <section className="bg-white py-24">
@@ -216,7 +217,8 @@ function TemplateDetailsPage() {
                         </h2>
 
                         <p className="mt-5 text-lg text-slate-600">
-                            Everything you need to create a beautiful marriage biodata.
+                            Everything you need to create a professional marriage
+                            biodata PDF.
                         </p>
 
                     </div>
@@ -224,12 +226,12 @@ function TemplateDetailsPage() {
                     <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
                         {[
-                            "Premium Design",
+                            "Premium Template",
                             "HD PDF Download",
                             "Print Ready",
                             "Unlimited Downloads",
                             "Modern Typography",
-                            "Instant AI Generation",
+                            "AI-Powered Generation",
                         ].map((item) => (
 
                             <div
@@ -261,12 +263,13 @@ function TemplateDetailsPage() {
                 <div className="mx-auto max-w-4xl px-8 text-center">
 
                     <h2 className="text-5xl font-extrabold text-white">
-                        Ready to Build Your Marriage Biodata?
+                        Ready to Create Your Marriage Biodata PDF?
                     </h2>
 
                     <p className="mt-6 text-lg leading-8 text-slate-300">
-                        Complete your biodata in minutes and download a
-                        professionally designed PDF instantly.
+                        Enter your details, choose this template, and download
+                        your professionally designed marriage biodata PDF in
+                        just a few minutes.
                     </p>
 
                     <Link
@@ -275,6 +278,14 @@ function TemplateDetailsPage() {
                     >
                         Start Creating Now
                     </Link>
+
+                    <p className="mx-auto mt-8 max-w-3xl text-sm leading-7 text-slate-400">
+                        VivahCraft is an AI-powered marriage biodata creation
+                        platform. We help users create and download professional
+                        marriage biodata PDFs. We do not provide matchmaking,
+                        dating, matrimonial listings, or partner-finding
+                        services.
+                    </p>
 
                 </div>
 

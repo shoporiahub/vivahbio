@@ -19,7 +19,7 @@ export default function TermsOfServicePage() {
                         </h2>
 
                         <p className="mt-3">
-                            Welcome to VivahBio. By accessing or using our
+                            Welcome to VivahCraft. By accessing or using our
                             website and services, you agree to be bound by
                             these Terms of Service. If you do not agree with
                             any part of these terms, please do not use our
@@ -33,14 +33,26 @@ export default function TermsOfServicePage() {
                         </h2>
 
                         <p className="mt-3">
-                            VivahCraft provides AI-powered marriage biodata
-                            creation tools that allow users to generate,
-                            customize and download professional marriage
-                            biodatas for personal use.
+                            VivahCraft is an AI-powered marriage biodata creation platform that enables users to generate, customize, and download professional marriage biodata PDFs. VivahCraft is a document creation service and does not provide matchmaking, dating, or partner-finding services.
                         </p>
                     </section>
 
                     <section>
+                        <h2 className="text-2xl font-semibold text-slate-900">
+                            3. No Matchmaking Services
+                        </h2>
+
+                        <p className="mt-3">
+                            VivahCraft provides software for creating marriage biodata documents
+                            only. We do not provide matchmaking, dating, matrimonial listings,
+                            partner recommendations, introductions, or communication between users.
+                            Users are solely responsible for how they use the documents generated
+                            through our platform.
+                        </p>
+                    </section>
+
+                    <section>
+
                         <h2 className="text-2xl font-semibold text-slate-900">
                             3. User Responsibilities
                         </h2>

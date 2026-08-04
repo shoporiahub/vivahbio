@@ -19,10 +19,11 @@ export default function PrivacyPolicyPage() {
                         </h2>
 
                         <p className="mt-3">
-                            Welcome to VivahBio. Your privacy is important to
-                            us. This Privacy Policy explains how we collect,
-                            use, store and protect your personal information
-                            when you use our website and services.
+                            Welcome to VivahCraft. We are an AI-powered marriage
+                            biodata creation platform. This Privacy Policy
+                            explains how we collect, use, store, and protect
+                            your personal information when you use our website
+                            to create and download marriage biodata PDFs.
                         </p>
                     </section>
 
@@ -56,9 +57,9 @@ export default function PrivacyPolicyPage() {
                         </h2>
 
                         <ul className="mt-3 list-disc space-y-2 pl-6">
-                            <li>Create AI-generated marriage biodatas.</li>
-                            <li>Generate downloadable PDF documents.</li>
-                            <li>Improve our templates and services.</li>
+                            <li>Generate marriage biodata documents.</li>
+                            <li>Create downloadable PDF files.</li>
+                            <li>Improve our templates and platform.</li>
                             <li>Provide customer support.</li>
                             <li>Process payments securely.</li>
                             <li>Prevent fraud and misuse of our platform.</li>
@@ -72,9 +73,10 @@ export default function PrivacyPolicyPage() {
 
                         <p className="mt-3">
                             The information you provide may be processed by
-                            artificial intelligence systems solely for the
-                            purpose of generating marriage biodatas and
-                            improving your experience on VivahBio.
+                            artificial intelligence systems solely for
+                            generating marriage biodata documents, formatting
+                            templates, and improving the functionality of our
+                            document creation platform.
                         </p>
 
                         <p className="mt-3">
@@ -85,73 +87,91 @@ export default function PrivacyPolicyPage() {
 
                     <section>
                         <h2 className="text-2xl font-semibold text-slate-900">
-                            5. Photo Storage
+                            5. No Matchmaking Services
+                        </h2>
+
+                        <p className="mt-3">
+                            VivahCraft provides software for creating marriage
+                            biodata documents only. We do not offer
+                            matchmaking, dating, matrimonial listings, partner
+                            recommendations, communication between users, or
+                            partner-finding services. Personal information is
+                            used only to generate the biodata documents you
+                            request.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2 className="text-2xl font-semibold text-slate-900">
+                            6. Photo Storage
                         </h2>
 
                         <p className="mt-3">
                             Profile photographs uploaded by you are stored
                             securely and are used only for generating your
-                            marriage biodata.
+                            marriage biodata documents.
                         </p>
                     </section>
 
                     <section>
                         <h2 className="text-2xl font-semibold text-slate-900">
-                            6. Payment Information
+                            7. Payment Information
                         </h2>
 
                         <p className="mt-3">
                             Payments are processed through trusted third-party
                             payment gateways. VivahCraft does not store your
-                            debit card, credit card or banking credentials.
+                            debit card, credit card, or banking credentials.
                         </p>
                     </section>
 
                     <section>
                         <h2 className="text-2xl font-semibold text-slate-900">
-                            7. Cookies
+                            8. Cookies
                         </h2>
 
                         <p className="mt-3">
                             We may use cookies and similar technologies to
                             improve website functionality, remember your
-                            preferences and analyse website usage.
+                            preferences, and analyze website usage.
                         </p>
                     </section>
 
                     <section>
                         <h2 className="text-2xl font-semibold text-slate-900">
-                            8. Data Sharing
+                            9. Data Sharing
                         </h2>
 
                         <p className="mt-3">
-                            We do not sell your personal information.
+                            We do not sell, rent, or trade your personal
+                            information to third parties.
                         </p>
 
                         <p className="mt-3">
                             Your information may only be shared with trusted
                             service providers who help us operate our platform,
-                            such as cloud storage, payment processing and
-                            hosting providers, where necessary.
+                            including cloud storage, payment processing, AI
+                            infrastructure, and hosting providers, where
+                            necessary.
                         </p>
                     </section>
 
                     <section>
                         <h2 className="text-2xl font-semibold text-slate-900">
-                            9. Data Security
+                            10. Data Security
                         </h2>
 
                         <p className="mt-3">
                             We implement reasonable technical and
                             organizational measures to protect your personal
                             information from unauthorized access, disclosure,
-                            alteration or destruction.
+                            alteration, or destruction.
                         </p>
                     </section>
 
                     <section>
                         <h2 className="text-2xl font-semibold text-slate-900">
-                            10. Your Rights
+                            11. Your Rights
                         </h2>
 
                         <p className="mt-3">
@@ -169,7 +189,7 @@ export default function PrivacyPolicyPage() {
 
                     <section>
                         <h2 className="text-2xl font-semibold text-slate-900">
-                            11. Children's Privacy
+                            12. Children's Privacy
                         </h2>
 
                         <p className="mt-3">
@@ -181,19 +201,19 @@ export default function PrivacyPolicyPage() {
 
                     <section>
                         <h2 className="text-2xl font-semibold text-slate-900">
-                            12. Changes to This Policy
+                            13. Changes to This Policy
                         </h2>
 
                         <p className="mt-3">
                             We may update this Privacy Policy from time to
                             time. Any changes will be published on this page
-                            with the updated revision date.
+                            together with the updated revision date.
                         </p>
                     </section>
 
                     <section>
                         <h2 className="text-2xl font-semibold text-slate-900">
-                            13. Contact Us
+                            14. Contact Us
                         </h2>
 
                         <p className="mt-3">

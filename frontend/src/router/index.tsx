@@ -102,6 +102,16 @@ const router = createBrowserRouter([
                 path: "/privacypolicy",
                 element: <PrivacyPolicyPage />,
             },
+
+            {
+                path: "/privacy-policy",
+                element: <PrivacyPolicyPage />,
+            },
+
+            {
+                path: "/privacy",
+                element: <PrivacyPolicyPage />,
+            },
             {
                 path: "/termofservice",
                 element: <TermsOfServicePage />,
@@ -123,8 +133,16 @@ const router = createBrowserRouter([
             {
                 path: "/import-biodata",
                 element: (
-                    <ImportBiodataPage/>
+                    <ImportBiodataPage />
                 )
+            },
+            {
+                path: "/terms-of-service",
+                element: <TermsOfServicePage />,
+            },
+            {
+                path: "/terms",
+                element: <TermsOfServicePage />,
             }
         ]
     }
